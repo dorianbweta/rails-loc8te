@@ -10,9 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_073400) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "end_locations", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "platform_cities", force: :cascade do |t|
+    t.bigint "platform_id", null: false
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_platform_cities_on_city_id"
+    t.index ["platform_id"], name: "index_platform_cities_on_platform_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string "name"
+    t.integer "API_endpoint"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "platform_id", null: false
+    t.bigint "city_id", null: false
+    t.integer "ETA"
+    t.float "fare"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_rides_on_city_id"
+    t.index ["platform_id"], name: "index_rides_on_platform_id"
+    t.index ["user_id"], name: "index_rides_on_user_id"
+  end
+
+  create_table "start_locations", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ride_id", null: false
+    t.bigint "start_location_id", null: false
+    t.bigint "end_location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["end_location_id"], name: "index_trips_on_end_location_id"
+    t.index ["ride_id"], name: "index_trips_on_ride_id"
+    t.index ["start_location_id"], name: "index_trips_on_start_location_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +95,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_073400) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "platform_cities", "cities"
+  add_foreign_key "platform_cities", "platforms"
+  add_foreign_key "rides", "cities"
+  add_foreign_key "rides", "platforms"
+  add_foreign_key "rides", "users"
+  add_foreign_key "trips", "end_locations"
+  add_foreign_key "trips", "rides"
+  add_foreign_key "trips", "start_locations"
+  add_foreign_key "trips", "users"
 end
