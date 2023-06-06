@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_040929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,11 +21,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "end_locations", force: :cascade do |t|
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
+  create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.string "address"
+    t.float "longitude"
+    t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,22 +61,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
-  create_table "start_locations", force: :cascade do |t|
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "trips", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "ride_id", null: false
-    t.bigint "start_location_id", null: false
-    t.bigint "end_location_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "start_location_id", null: false
+    t.bigint "end_location_id", null: false
     t.index ["end_location_id"], name: "index_trips_on_end_location_id"
     t.index ["ride_id"], name: "index_trips_on_ride_id"
     t.index ["start_location_id"], name: "index_trips_on_start_location_id"
@@ -91,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -100,8 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_075626) do
   add_foreign_key "rides", "cities"
   add_foreign_key "rides", "platforms"
   add_foreign_key "rides", "users"
-  add_foreign_key "trips", "end_locations"
+  add_foreign_key "trips", "locations", column: "end_location_id"
+  add_foreign_key "trips", "locations", column: "start_location_id"
   add_foreign_key "trips", "rides"
-  add_foreign_key "trips", "start_locations"
   add_foreign_key "trips", "users"
 end
