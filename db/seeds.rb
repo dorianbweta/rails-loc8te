@@ -6,51 +6,62 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 puts 'Cleaning database...'
 User.destroy_all
-Cities.destroy_all
+City.destroy_all
 Platform.destroy_all
 
 
 puts "Creating users..."
 
+visitor = User.create!(
+  first_name: "Visitor",
+  last_name: "Visitor",
+  email: "visitor@gmail.com",
+  phone: "7020890872",
+  password: "password"
+)
+
 moses = User.create!(
   first_name: "Moses",
   last_name: "Alligator",
   email: "moses@gmail.com",
-  phone: 7020890872
+  phone: "7020890872",
+  password: "password"
 )
 
 piscilla = User.create!(
   first_name: "Priscilla",
   last_name: "Adilla",
   email: "priscilla@gmail.com",
-  phone: 7020560872
+  phone: "7020560872",
+  password: "password"
 )
 
 dorian = User.create!(
   first_name: "Dorian",
   last_name: "Polo",
   email: "dorian@gmail.com",
-  phone: 7020780872
+  phone: "7020780872",
+  password: "password"
 )
 
-puts "Creating cities..."
+puts "Creating City..."
 
-newyork = Cities.create!(
+newyork = City.create!(
   name: "New York",
   country: "United States"
 )
 
-nevada = Cities.create!(
+nevada = City.create!(
   name: "Las Vegas",
   country: "United States"
 )
 
-florida = Cities.create!(
+florida = City.create!(
   name: "Miami",
   country: "United States"
 )
 
-california = Cities.create!(
+california = City.create!(
   name: "Los angeles",
   country: "United States"
 )
@@ -72,6 +83,8 @@ arro = Platform.create!(
   rating: 4.2
 )
 
+puts "merging cities and platforms..."
+
 PlatformCity.create!(
   platform_id: uber.id,
   city_id: newyork.id
@@ -86,6 +99,8 @@ PlatformCity.create!(
   platform_id: uber.id,
   city_id: florida.id
 )
+
+puts "generating locations..."
 
 nypizza = Location.create!(
   address: "413 8th Ave, New York, NY 10001, United States",
@@ -121,6 +136,8 @@ pinball = Location.create!(
   address: "4925 Las Vegas Blvd S, Las Vegas, NV 89119, United States",
   name: "Pinball Hall of Fame"
 )
+
+puts "gathering all rides..."
 
 ride1 = Ride.create!(
   user_id: moses.id,
