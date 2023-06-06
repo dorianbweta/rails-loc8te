@@ -79,5 +79,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem "pg_search"
+gem "geocoder"
 # GEMS ADDED MANUALLY
 gem 'oauth2'

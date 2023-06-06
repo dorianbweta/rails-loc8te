@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "pages#home"
   # root "articles#index"
-  resources :trips, only: %i[new index show]
+  resources :trips, only: %i[new create index show] do
+    resources :rides, only: :index
+  end
 end
