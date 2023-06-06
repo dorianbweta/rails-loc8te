@@ -1,5 +1,9 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[index]
+
+  def index
+  end
 
   def new
     @trip = Trip.new
