@@ -3,5 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @trip = Trip.new
+    if params[:end]
+      @location = Location.find(params[:end])
+    end
   end
 end
