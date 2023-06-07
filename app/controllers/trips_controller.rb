@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
+    @trips = Trip.where(user_id: current_user.id)
   end
 
   def new

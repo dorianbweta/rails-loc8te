@@ -1,13 +1,24 @@
- <div class="container">
-  <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
+ <h2 class="header">My Trips</h2>
+ <div class="container-history my-1">
+    <% 5.times do %>
+      <% @trips.each do |trip| %>
+  <div class="card-product">
+  <div class="title">
+  <h2><%= trip.end_location.name %></h1>
+  <hr>
+  </div>
+    <div class="card-product-infos d-flex">
+      <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/uber_icon_146079.png"/>
       <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
+        <p>To <%= trip.end_location.name %></p>
+
+        <p>from <%= trip.start_location.name %></p>
       </div>
-      <h2 class="card-trip-pricing">£99.99</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <div class="date">
+        <h2><%= trip.created_at.strftime("%d.%m.%Y") %></h2>
+      </div>
     </div>
   </div>
+      <% end %>
+    <% end %>
 </div>
