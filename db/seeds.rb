@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 puts 'Cleaning database...'
+Trip.destroy_all
+Ride.destroy_all
+PlatformCity.destroy_all
 User.destroy_all
 City.destroy_all
 Platform.destroy_all
