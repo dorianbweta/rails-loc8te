@@ -1,14 +1,31 @@
 <div class="full-page">
 
-  <h1>See all the ride-sharing options for this trip</h1>
+  <div class="container">
+    <h1>See all the ride-sharing options for this trip</h1>
+    <h2>📲 Rider's info</h2>
+    <span> User: <strong style="color: orange"><%= @trip.user.first_name %> <%= @trip.user.last_name %></strong></span>
 
-  <ul class="list-group">
-    <%= link_to "Uber", "https://m.uber.com/ul/?client_id=luRSONXwxNrthicxwvwBXHEtwSovIcxQ&action=setPickup&pickup[latitude]=37.775818&pickup[longitude]=-122.418028&pickup[nickname]=UberHQ&pickup[formatted_address]=1455 Market St, San Francisco, CA 94103&dropoff[latitude]=37.802374&dropoff[longitude]=-122.405818&dropoff[nickname]=Coit Tower&dropoff[formatted_address]=1 Telegraph Hill Blvd, San Francisco, CA 94133&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d", class: "list-group-item" %>
-    <li class="list-group-item">Uber</li>
-    <li class="list-group-item">GoJek</li>
-    <li class="list-group-item">Grab</li>
-    <li class="list-group-item">Lyft</li>
-    <li class="list-group-item">Bolt</li>
-  </ul>
+    <br>
+
+    <h2>📍 Location's info</h2>
+    <span> Pickup • latitude: <strong style="color: orange"><%= @trip.start_location.latitude %></strong></span><br>
+    <span> Pickup • longitude: <strong style="color: orange"><%= @trip.start_location.longitude %></strong></span><br>
+    <span> Pickup • name: <strong style="color: orange"><%= @trip.start_location.name %></strong></span><br>
+    <span> Drop-off • latitude: <strong style="color: orange"><%= @trip.end_location.latitude %></strong></span><br>
+    <span> Drop-off • longitude: <strong style="color: orange"><%= @trip.end_location.longitude %></strong></span><br>
+    <span> Drop-off • name: <strong style="color: orange"><%= @trip.end_location.name %></strong></span><br>
+
+    <br>
+    <h2>🚗 Ride-sharing options</h2>
+
+    <ul class="list-group">
+
+      <%= link_to "Uber", trip_path(@trip, platform: { platform_id: @uber_ride.platform_id }), class: "list-group-item", data: {turbo_method: :patch} %>
+      <li class="list-group-item">GoJek</li>
+      <li class="list-group-item">Grab</li>
+      <li class="list-group-item">Lyft</li>
+      <li class="list-group-item">Bolt</li>
+    </ul>
+  </div>
 
 </div>
