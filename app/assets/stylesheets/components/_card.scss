@@ -3,9 +3,38 @@
   height: 100%;
   background-color: #14213D;
   border-radius: 40px;
-  margin: 20px 20px;
+  margin: 8px 24px;
+  padding: 10px;
 
   h2 {
     color: whitesmoke;
+    margin: 0rem;
+    padding: 10px 24px;
+  }
+}
+
+.ride-info {
+  background-color: whitesmoke;
+  border-radius: 30px;
+  margin: 4px 8px;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: space-between;
+
+  p {
+    margin: 0rem;
+    padding: 4px;
+  }
+
+  h3 {
+    margin: 0rem;
+    font-weight: 600;
+    color: orange;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+
+  .ride-logos {
+    width: 60px;
   }
 }
