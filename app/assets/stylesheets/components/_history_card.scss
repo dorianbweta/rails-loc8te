@@ -1,14 +1,26 @@
+.header {
+  font-weight: 900;
+  margin-left: 25px;
+  margin-bottom: 15px;
+  margin-top: 45px
+}
+
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 130px;
   display: flex;
   align-items: center;
   margin: 20px;
   flex-wrap: wrap;
   img {
-    width: 15%;
     object-fit: cover;
+    height: 50px;
+    width: 50px;
   }
+}
+
+.card-product hr {
+  border-top: 1px solid gray;
 }
 
 .card-product h2 {
@@ -26,8 +38,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 .container-history {
@@ -35,9 +48,15 @@
   border-radius: 30px;
   padding-left: 4px;
   padding-right: 4px;
+  padding-top: 5px;
   max-width: 90%;
   margin-right: auto;
   margin-left: auto;
-  height: 100vh;
+  height: 77vh;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: scroll;
+}
+
+.title {
+  width: 100%;
 }

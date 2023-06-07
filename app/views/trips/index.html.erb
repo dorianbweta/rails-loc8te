@@ -1,14 +1,24 @@
- <div class="container-history my-3">
+ <h2 class="header">My Trips</h2>
+ <div class="container-history my-1">
+    <% 5.times do %>
       <% @trips.each do |trip| %>
   <div class="card-product">
-  <div class="title"><h2><%= trip.end_location.name %></h1></div>
+  <div class="title">
+  <h2><%= trip.end_location.name %></h1>
+  <hr>
+  </div>
     <div class="card-product-infos d-flex">
       <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/uber_icon_146079.png"/>
       <div>
-        <h2><%= trip.created_at %></h2>
+        <p>To <%= trip.end_location.name %></p>
+
         <p>from <%= trip.start_location.name %></p>
+      </div>
+      <div class="date">
+        <h2><%= trip.created_at.strftime("%d.%m.%Y") %></h2>
       </div>
     </div>
   </div>
       <% end %>
+    <% end %>
 </div>
