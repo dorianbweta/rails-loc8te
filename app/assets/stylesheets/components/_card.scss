@@ -1,46 +1,11 @@
-.home-card {
-  border: 1px solid lightgrey;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
-  height: 46px;
+.ride-category {
   width: 360px;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-
-  h3 {
-    font-size: 16px;
-    text-align: center;
-    font-weight: 700;
-    margin: 0rem;
-    padding: 10px 10px;
-  }
-}
-
-.home-card-dark {
-  border: 1px solid lightgrey;
-  background: #14213D;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
-  height: 84px;
-  width: 360px;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+  height: 100%;
+  background-color: #14213D;
+  border-radius: 40px;
+  margin: 20px 20px;
 
   h2 {
-    font-size: 20px;
-    text-align: center;
-    font-weight: 600;
-    margin: 0rem;
-    color: white;
-    padding: 10px 10px;
+    color: whitesmoke;
   }
-}
-
-.rides-icon {
-  border-radius: 50%;
-  width: 80px;
-
 }
