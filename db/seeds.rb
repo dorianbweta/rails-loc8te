@@ -86,7 +86,7 @@ arro = Platform.create!(
   rating: 4.2
 )
 
-puts "merging cities and platforms..."
+puts "Merging cities and platforms..."
 
 PlatformCity.create!(
   platform_id: uber.id,
@@ -103,15 +103,15 @@ PlatformCity.create!(
   city_id: florida.id
 )
 
-puts "generating locations..."
+puts "Generating locations..."
 
 nypizza = Location.create!(
-  address: "413 8th Ave, New York, NY 10001, United States",
+  address: "413 8th Ave, New York, NY 10001",
   name: "NY Pizza Suprema"
 )
 
 hells_kitchen = Location.create!(
-  address: "3570 Las Vegas Blvd S, Las Vegas, NV 89109, United States",
+  address: "3570 Las Vegas Blvd S, Las Vegas, NV 89109",
   name: "Hells Kitchen"
 )
 
@@ -121,26 +121,36 @@ disney_world = Location.create!(
 )
 
 six_flags = Location.create!(
-  address: "26101 Magic Mountain Pkwy, Valencia, CA 91355, United States",
+  address: "26101 Magic Mountain Pkwy, Valencia, CA 91355",
   name: "Six flags"
 )
 
 south = Location.create!(
-  address: "3333 Bristol St, Costa Mesa, CA 92626, United States",
+  address: "3333 Bristol St, Costa Mesa, CA 92626",
   name: "South Coast Plaza"
 )
 
 mgm = Location.create!(
-  address: " 3799 S Las Vegas Blvd, Las Vegas, NV 89109, United States",
+  address: " 3799 S Las Vegas Blvd, Las Vegas, NV 89109",
   name: "MGM GRAND"
 )
 
 pinball = Location.create!(
-  address: "4925 Las Vegas Blvd S, Las Vegas, NV 89119, United States",
+  address: "4925 Las Vegas Blvd S, Las Vegas, NV 89119",
   name: "Pinball Hall of Fame"
 )
 
-puts "gathering all rides..."
+uberhq = Location.create!(
+  address: "1455 Market St, San Francisco, CA 94103",
+  name: "Uber HQ"
+)
+
+coittower = Location.create!(
+  address: "1 Telegraph Hill Blvd, San Francisco, CA 94133",
+  name: "Coit Tower"
+)
+
+puts "Gathering all rides..."
 
 ride1 = Ride.create!(
   user_id: moses.id,
@@ -148,7 +158,8 @@ ride1 = Ride.create!(
   city_id: nevada.id,
   ETA: 23,
   fare: 300,
-  category: "luxury"
+  category: "luxury",
+  link_to_app: ""
 )
 
 trip1 = Trip.create!(
@@ -164,7 +175,8 @@ ride2 = Ride.create!(
   city_id: nevada.id,
   ETA: 33,
   fare: 20,
-  category: "economy"
+  category: "economy",
+  link_to_app: ""
 )
 
 trip2 = Trip.create!(
@@ -180,7 +192,8 @@ ride3 = Ride.create!(
   city_id: nevada.id,
   ETA: 18,
   fare: 30,
-  category: "green"
+  category: "green",
+  link_to_app: ""
 )
 
 trip3 = Trip.create!(
@@ -188,4 +201,21 @@ trip3 = Trip.create!(
   ride_id: ride3.id,
   start_location_id: pinball.id,
   end_location_id: mgm.id
+)
+
+ride4 = Ride.create!(
+  user_id: dorian.id,
+  platform_id: uber.id,
+  city_id: newyork.id,
+  ETA: 18,
+  fare: 30,
+  category: "green",
+  link_to_app: ""
+)
+
+trip4 = Trip.create!(
+  user_id: dorian.id,
+  ride_id: ride4.id,
+  start_location_id: uberhq.id,
+  end_location_id: coittower.id
 )

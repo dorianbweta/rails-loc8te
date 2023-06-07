@@ -1,4 +1,21 @@
 <%= render "shared/trip_form" %>
+
 <%= render "shared/map" %>
 <%= render "layouts/homepage" %>
+=======
+<%#= render "shared/map" %>
+
+
+<%# MAKE IT LOOK LIKE A POP-UP %>
+<% if params[:end] %>
+  <div class="overlay"></div>
+  <div>
+    <%= simple_form_for @location do |f| %>
+      <%= f.input :name %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <%= link_to "Skip", trips_path %>
+<% end %>
 <%# <%= render "layouts/index" %>
