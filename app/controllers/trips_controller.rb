@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
+    @trips = Trip.where(user_id: current_user.id)
   end
 
   def new
@@ -11,14 +12,17 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    start_location = Location.create(address: params[:trip][:start_location])
+    end_location = Location.create(address: params[:trip][:end_location])
+    @trip = Trip.new(start_location: start_location, end_location: end_location)
     if user_signed_in?
       @trip.user = current_user
     else
       @trip.user = User.find_by_email("visitor@gmail.com")
     end
     if @trip.save
-      redirect_to trip_rides_path(@trip.id)
+      redirect_to root_path(end: end_location.id)
+      # redirect_to trip_rides_path(@trip.id)
     end
   end
 
