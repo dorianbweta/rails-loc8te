@@ -21,7 +21,8 @@ class TripsController < ApplicationController
       @trip.user = User.find_by_email("visitor@gmail.com")
     end
     if @trip.save
-      redirect_to trip_rides_path(@trip.id)
+      redirect_to root_path(end: end_location.id)
+      # redirect_to trip_rides_path(@trip.id)
     end
   end
 
