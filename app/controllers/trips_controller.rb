@@ -26,11 +26,11 @@ class TripsController < ApplicationController
   end
 
   private
-  
+
   def trip_params
     params.require(:trip).permit(:start_location_id, :end_location_id)
   end
-  
+
   def set_trip
     @trip = Trip.find(params[:id])
   end
