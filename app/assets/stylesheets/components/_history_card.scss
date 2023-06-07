@@ -1,20 +1,14 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 20px;
-  img{
-    padding: 20px;
+  flex-wrap: wrap;
+  img {
+    width: 15%;
+    object-fit: cover;
   }
-}
-
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
 }
 
 .card-product h2 {
@@ -33,4 +27,17 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  justify-content: space-around;
+}
+
+.container-history {
+  background: white;
+  border-radius: 30px;
+  padding-left: 4px;
+  padding-right: 4px;
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
