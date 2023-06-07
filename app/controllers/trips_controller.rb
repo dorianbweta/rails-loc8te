@@ -11,7 +11,9 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    start_location = Location.create(address: params[:trip][:start_location])
+    end_location = Location.create(address: params[:trip][:end_location])
+    @trip = Trip.new(start_location: start_location, end_location: end_location)
     if user_signed_in?
       @trip.user = current_user
     else
@@ -26,11 +28,11 @@ class TripsController < ApplicationController
   end
 
   private
-  
+
   def trip_params
     params.require(:trip).permit(:start_location_id, :end_location_id)
   end
-  
+
   def set_trip
     @trip = Trip.find(params[:id])
   end
