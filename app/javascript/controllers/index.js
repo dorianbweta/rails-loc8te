@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import AddLocationController from "./add_location_controller"
-application.register("add-location", AddLocationController)
-
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
