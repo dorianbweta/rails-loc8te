@@ -78,5 +78,9 @@ end
 
 # GEMS ADDED MANUALLY
 gem 'oauth2'
+<<<<<<< HEAD
+gem 'greensock-rails', '~> 1.20', '>= 1.20.4.0'
+=======
 gem "pg_search"
 gem "geocoder"
+>>>>>>> master
