@@ -83,3 +83,4 @@ gem "pg_search"
 gem "geocoder"
 # GEMS ADDED MANUALLY
 gem 'oauth2'
+gem 'greensock-rails', '~> 1.20', '>= 1.20.4.0'
