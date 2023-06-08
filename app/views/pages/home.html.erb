@@ -1,6 +1,7 @@
 <%= render "shared/trip_form" %>
-<%#= render "shared/map" %>
+<%= render "shared/map" %>
 
+<%# FEATURE TO BE IMPROVED: TRY TO REPLICATE THE GOJECK SAVE FEATURE %>
 <%# MAKE IT LOOK LIKE A POP-UP %>
 <% if params[:end] %>
   <div class="overlay"></div>
@@ -10,9 +11,7 @@
       <%= f.submit %>
     <% end %>
   </div>
-
   <%= link_to "Skip", trips_path %>
 <% end %>
 
-<%# <%= render "layouts/homepage" %>
-<%# <%= render "layouts/index" %>
+<%= render "layouts/homepage" %>
