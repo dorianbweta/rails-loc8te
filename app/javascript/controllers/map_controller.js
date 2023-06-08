@@ -14,11 +14,12 @@ export default class extends Controller {
       zoom: 13
     });
 
-    map.addControl(
-        new MapboxDirections({
-            accessToken: mapboxgl.accessToken
-        }),
-        'top-left'
-    );
+    // map.addControl(
+    //     new MapboxDirections({
+    //         accessToken: mapboxgl.accessToken
+    //     }),
+    //     'top-left'
+    // );
   }
+
 }
