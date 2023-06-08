@@ -28,7 +28,8 @@ class TripsController < ApplicationController
 
   def show
     # create new rides (Uber, Lyft, Grab)
-    @uber_ride = Ride.new(platform_id: 1, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
+    
+    @uber_ride = Ride.new(platform_id: 1, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app: build_link_to_app(@trip))
     @lyft_ride = Ride.new(platform_id: 2, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
     @arro_ride = Ride.new(platform_id: 3, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
 
@@ -46,7 +47,18 @@ class TripsController < ApplicationController
     @uber_ride.save
     @trip.update(ride_id: @uber_ride.id)
 
-    redirect_to @uber_ride.link_to_app, allow_other_host: true
+    respond_to do |format|
+      if @trip.persisted?
+        @ok = true
+        format.json
+        format.html { redirect_to trips_path }
+      else
+        @ok = false
+        format.json
+        format.html { render 'trips/show' }
+      end
+    end
+
   end
 
   private

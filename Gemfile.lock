@@ -120,6 +120,7 @@ GEM
     geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    greensock-rails (1.20.4.0)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -159,9 +160,9 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.2-x86_64-linux)
     nokogiri (1.15.2-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.2-x86_64-linux)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -272,9 +273,10 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  arm64-darwin-21
   arm64-darwin-22
-  x86_64-linux
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -285,6 +287,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 6.1)
   geocoder
+  greensock-rails (~> 1.20, >= 1.20.4.0)
   jbuilder
   jsbundling-rails
   oauth2
