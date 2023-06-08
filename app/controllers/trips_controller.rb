@@ -33,7 +33,7 @@ class TripsController < ApplicationController
     @arro_ride = Ride.new(platform_id: 3, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
 
     # uber_ride.link = uber_link with pre-filled data from trip
-    
+
     #VIEW
     # form with the new ride options
     # confirmation button -> update the trip and the ride in DB + redirect to Uber
