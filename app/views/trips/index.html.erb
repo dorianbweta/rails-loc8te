@@ -9,10 +9,10 @@
   </div>
     <div class="card-product-infos d-flex">
       <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/uber_icon_146079.png"/>
-      <div>
-        <p>To <%= trip.end_location.name %></p>
+      <div class="trip-info">
+        <p><strong>From:</strong> <%= trip.start_location.name %></p>
+        <p><strong>To:</strong> <%= trip.end_location.name %></p>
 
-        <p>from <%= trip.start_location.name %></p>
       </div>
       <div class="date">
         <h2><%= trip.created_at.strftime("%d.%m.%Y") %></h2>
