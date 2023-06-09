@@ -99,7 +99,7 @@ PlatformCity.create!(
 )
 
 PlatformCity.create!(
-  platform_id: arrro.id,
+  platform_id: arro.id,
   city_id: newyork.id
 )
 
