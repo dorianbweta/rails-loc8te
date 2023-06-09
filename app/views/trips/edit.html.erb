@@ -15,9 +15,9 @@
     <span> Drop-off • longitude: <strong style="color: orange"><%= @trip.end_location.longitude %></strong></span><br>
     <span> Drop-off • name: <strong style="color: orange"><%= @trip.end_location.name %></strong></span><br>
 
-    
+
     <h2>🚗 Ride-sharing options</h2>
-    
+
     <form action="/trips/<%= @trip.id %>"
           data-controller="trip-update"
           data-action="submit->trip-update#update"
@@ -25,10 +25,15 @@
           data-trip-update-link-value="<%= @rides.first.link_to_app %>"
           >
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <% @rides.each_with_index do |ride, index| %>
-        <%= render "ride_checkbox", ride: ride, index: index %>
-      <% end %>
-      <input type="submit" value="Book Now!">
+      <div class="container">
+        <div class="ride-category">
+          <h2>Categories TBD</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
+          <input type="submit" value="Book Now!" class="button-primary">
+        </div>
+      </div>
     </form>
   </div>
 </div>
