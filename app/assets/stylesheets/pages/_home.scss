@@ -46,6 +46,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 12px;
   justify-items: center;
+  align-items: center;
   margin: 20px;
   width: 320px;
 }
@@ -54,6 +55,7 @@
   width: 80px;
   height: auto;
   border-radius: 50%;
+  justify-content: center;
 }
 
 .container {
