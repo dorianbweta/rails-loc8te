@@ -1,3 +1,20 @@
-<h1>Trip #<%= @trip.id %> </h1>
+<br>
+<div class = "container-history my-1">
+  <div id = "trips-show-h1">
+    <br>
+    <h1 style="text-align: center; text-decoration: underline;">Check your ride details below</h1>
+  </div>
+  <br>
+  <div class = "trips-show-card">
+    <h3> <strong>Pickup Point:</strong> <%= @trip.start_location.address %> </h3>
+    <h3> <strong>Destination:</strong> <%= @trip.end_location.address %> </h3>
+    <br>
+    <%= render "shared/map" %>
+  </div>
+  <br>
+  <br>
 
-<%= link_to "edit trip, choose ride", edit_trip_path(@trip) %>
+  <div id = "proceed-link" style="text-align center;">
+    <%= link_to "Proceed", edit_trip_path(@trip), style: "text-decoration: none; color: white; text-align: center;" %>
+  </div>
+</div>
