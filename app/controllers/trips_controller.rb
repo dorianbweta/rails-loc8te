@@ -48,7 +48,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:'')
+    @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:build_link_to_app(@trip))
     @uber_ride.link_to_app = build_link_to_app(@trip)
     @uber_ride.user_id = current_user.id
     @uber_ride.save
