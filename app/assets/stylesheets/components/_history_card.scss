@@ -46,6 +46,8 @@
 .container-history {
   background: white;
   border-radius: 30px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   padding-left: 4px;
   padding-right: 4px;
   padding-top: 5px;
@@ -57,6 +59,15 @@
   overflow: scroll;
 }
 
+.container-history::-webkit-scrollbar {
+  height: fit-content;
+}
+
 .title {
   width: 100%;
+}
+
+.trip-info {
+  margin-right: auto;
+  margin-left: 1em;
 }
