@@ -1,31 +1,3 @@
-<div class="full-page">
+<h1>Trip #<%= @trip.id %> </h1>
 
-  <div class="container">
-    <h1>See all the ride-sharing options for this trip</h1>
-    <h2>📲 Rider's info</h2>
-    <span> User: <strong style="color: orange"><%= @trip.user.first_name %> <%= @trip.user.last_name %></strong></span>
-
-    <br>
-
-    <h2>📍 Location's info</h2>
-    <span> Pickup • latitude: <strong style="color: orange"><%= @trip.start_location.latitude %></strong></span><br>
-    <span> Pickup • longitude: <strong style="color: orange"><%= @trip.start_location.longitude %></strong></span><br>
-    <span> Pickup • name: <strong style="color: orange"><%= @trip.start_location.name %></strong></span><br>
-    <span> Drop-off • latitude: <strong style="color: orange"><%= @trip.end_location.latitude %></strong></span><br>
-    <span> Drop-off • longitude: <strong style="color: orange"><%= @trip.end_location.longitude %></strong></span><br>
-    <span> Drop-off • name: <strong style="color: orange"><%= @trip.end_location.name %></strong></span><br>
-
-    <br>
-    <h2>🚗 Ride-sharing options</h2>
-
-    <ul class="list-group">
-
-      <%= link_to "Uber", trip_path(@trip, platform: { platform_id: @uber_ride.platform_id }), class: "list-group-item", data: {turbo_method: :patch} %>
-      <li class="list-group-item">GoJek</li>
-      <li class="list-group-item">Grab</li>
-      <li class="list-group-item">Lyft</li>
-      <li class="list-group-item">Bolt</li>
-    </ul>
-  </div>
-
-</div>
+<%= link_to "edit trip, choose ride", edit_trip_path(@trip) %>

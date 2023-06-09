@@ -1,0 +1,14 @@
+.card-ride {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: .5em 0;
+  padding: .5em .25em;
+  background-color: white;
+  border-radius: .5em;
+  width: 80vw;
+
+  .card-ride__image {
+    height: 5em;
+  }
+}
