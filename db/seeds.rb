@@ -95,6 +95,16 @@ PlatformCity.create!(
 
 PlatformCity.create!(
   platform_id: lyft.id,
+  city_id: newyork.id
+)
+
+PlatformCity.create!(
+  platform_id: arrro.id,
+  city_id: newyork.id
+)
+
+PlatformCity.create!(
+  platform_id: lyft.id,
   city_id: nevada.id
 )
 
