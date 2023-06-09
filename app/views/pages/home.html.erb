@@ -1,7 +1,15 @@
-<%= render "shared/trip_form" %>
+<div class="container">
+  <div class="home-card d-flex justify-content-center">
+    <h3>Hello! Where would you like to go to today?</h3>
+  </div>
+</div>
+
+<%= render "shared/trip_form"%>
+
+
 <%= render "shared/map" %>
 
-<%# MAKE IT LOOK LIKE A POP-UP %>
+
 <% if params[:end] %>
   <div class="overlay"></div>
   <div>

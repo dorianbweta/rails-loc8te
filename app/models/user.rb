@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :rides
   has_many :trips
+  has_many :start_locations, through: :trips
+  has_many :end_locations, through: :trips
 end
