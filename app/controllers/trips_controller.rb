@@ -27,12 +27,12 @@ class TripsController < ApplicationController
   end
 
   def show;end
-  
+
   def edit # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
     city = City.find_by_name("New York") # in a real scenario we should evaluate the city based on the trip pickup location
     @rides = []
     city.platforms.each do |platform|
-      available_rides_per_platform = rand(3..5)
+      available_rides_per_platform = rand(2..3)
 
       available_rides_per_platform.times do
         @rides << Ride.new(
