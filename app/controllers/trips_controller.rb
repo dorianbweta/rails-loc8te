@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: %i[show update]
+  before_action :set_trip, only: %i[show edit update]
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
@@ -26,27 +26,46 @@ class TripsController < ApplicationController
     end
   end
 
-  def show
-    # create new rides (Uber, Lyft, Grab)
-    @uber_ride = Ride.new(platform_id: 1, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
-    @lyft_ride = Ride.new(platform_id: 2, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
-    @arro_ride = Ride.new(platform_id: 3, city_id: 1, ETA: 15, fare: 20, category: 'green', link_to_app:'')
+  def show;end
+  
+  def edit # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
+    city = City.find_by_name("New York") # in a real scenario we should evaluate the city based on the trip pickup location
+    @rides = []
+    city.platforms.each do |platform|
+      available_rides_per_platform = rand(3..5)
 
-    # uber_ride.link = uber_link with pre-filled data from trip
-
-    #VIEW
-    # form with the new ride options
-    # confirmation button -> update the trip and the ride in DB + redirect to Uber
+      available_rides_per_platform.times do
+        @rides << Ride.new(
+          platform: platform,
+          city: city,
+          ETA: rand(15..25),
+          fare: rand(20..100),
+          category: Ride::CATEGORIES.sample,
+          link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : ""
+        )
+      end
+    end
   end
 
   def update
-    @uber_ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:'')
+    @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:build_link_to_app(@trip))
     @uber_ride.link_to_app = build_link_to_app(@trip)
     @uber_ride.user_id = current_user.id
     @uber_ride.save
     @trip.update(ride_id: @uber_ride.id)
 
-    redirect_to @uber_ride.link_to_app, allow_other_host: true
+    respond_to do |format|
+      if @trip.persisted?
+        @ok = true
+        format.json
+        format.html { redirect_to trips_path }
+      else
+        @ok = false
+        format.json
+        format.html { render 'trips/show' }
+      end
+    end
+
   end
 
   private
