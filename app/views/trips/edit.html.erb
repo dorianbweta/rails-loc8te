@@ -1,6 +1,6 @@
 <div class="full-page">
 
-  <div class="container">
+  <div>
     <div class="home-card d-flex justify-content-center">
       <h3>View the available options below!</h3>
     </div>
@@ -13,14 +13,34 @@
           data-trip-update-rides-value="<%= @rides %>"
           data-trip-update-link-value="<%= @rides.first.link_to_app %>"
           >
+      <div class="sticky-btn">
+        <input type="submit" value="Book Now!" class="button-primary">
+      </div>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <div class="container">
+      <div data-controller="rides">
         <div class="ride-category">
           <h2>Economy</h2>
           <% @rides.each_with_index do |ride, index| %>
             <%= render "ride_checkbox", ride: ride, index: index %>
           <% end %>
-          <input type="submit" value="Book Now!" class="button-primary">
+        </div>
+         <div class="ride-category">
+          <h2>Economy</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
+        </div>
+        <div class="ride-category">
+          <h2>Economy</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
+        </div>
+         <div class="ride-category">
+          <h2>Economy</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
         </div>
       </div>
     </form>
