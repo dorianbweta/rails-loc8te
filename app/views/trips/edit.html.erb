@@ -1,23 +1,12 @@
 <div class="full-page">
 
   <div class="container">
-    <h1>See all the ride-sharing options for this trip</h1>
-    <h2>📲 Rider's info</h2>
-    <span> User: <strong style="color: orange"><%= @trip.user.first_name %> <%= @trip.user.last_name %></strong></span>
+    <div class="home-card d-flex justify-content-center">
+      <h3>View the available options below!</h3>
+    </div>
+    <%#= render "shared/trip_form" %>
+    <%= render "shared/map" %>
 
-    <br>
-
-    <h2>📍 Location's info</h2>
-    <span> Pickup • latitude: <strong style="color: orange"><%= @trip.start_location.latitude %></strong></span><br>
-    <span> Pickup • longitude: <strong style="color: orange"><%= @trip.start_location.longitude %></strong></span><br>
-    <span> Pickup • name: <strong style="color: orange"><%= @trip.start_location.name %></strong></span><br>
-    <span> Drop-off • latitude: <strong style="color: orange"><%= @trip.end_location.latitude %></strong></span><br>
-    <span> Drop-off • longitude: <strong style="color: orange"><%= @trip.end_location.longitude %></strong></span><br>
-    <span> Drop-off • name: <strong style="color: orange"><%= @trip.end_location.name %></strong></span><br>
-
-    
-    <h2>🚗 Ride-sharing options</h2>
-    
     <form action="/trips/<%= @trip.id %>"
           data-controller="trip-update"
           data-action="submit->trip-update#update"
@@ -25,10 +14,15 @@
           data-trip-update-link-value="<%= @rides.first.link_to_app %>"
           >
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <% @rides.each_with_index do |ride, index| %>
-        <%= render "ride_checkbox", ride: ride, index: index %>
-      <% end %>
-      <input type="submit" value="Book Now!">
+      <div class="container">
+        <div class="ride-category">
+          <h2>Economy</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
+          <input type="submit" value="Book Now!" class="button-primary">
+        </div>
+      </div>
     </form>
   </div>
 </div>
