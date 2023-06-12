@@ -1,0 +1,39 @@
+<div class="full-page">
+
+  <div class="container">
+    <div class="home-card d-flex justify-content-center">
+      <h3>View the available options below!</h3>
+    </div>
+
+    <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-start-location-value="<%= @start_array.to_json %>" data-map-end-location-value="<%= @end_array.to_json %>">
+      <div class="fake-trip-form d-flex">
+        <%= link_to "Your current location", trips_search_path, class: "button-primary" %>
+        <%= link_to "Search for a destination", trips_search_path, class: "button-primary" %>
+      </div>
+      <div class = "map">
+        <%= render "shared/map" %>
+      </div>
+    </div>
+
+    <form action="/trips" method="post"
+          data-controller="trip-create"
+          data-action="submit->trip-create#create"
+          data-trip-create-rides-value="<%= @rides %>"
+          <%# why "@rides.first.link_to_app"? %>
+          data-trip-create-link-value="<%= @rides.first.link_to_app %>"
+          >
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="container">
+        <div class="ride-category">
+          <h2>Economy</h2>
+          <% @rides.each_with_index do |ride, index| %>
+            <%= render "ride_checkbox", ride: ride, index: index %>
+          <% end %>
+          <input type="submit" value="Book Now!" class="button-primary">
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+

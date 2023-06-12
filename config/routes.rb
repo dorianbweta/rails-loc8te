@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # root "articles#index"
   get '/trips/search', to: 'trips#search'
-  resources :trips, only: %i[new create index show edit update]
+  resources :trips, only: %i[new create index]
   resources :locations, only: :update
 end

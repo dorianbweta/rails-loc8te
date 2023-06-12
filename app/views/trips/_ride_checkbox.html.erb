@@ -1,5 +1,12 @@
+<fieldset>
+<%# following inputs are used to pass information to the 'create' action %>
+  <input type="hidden" name="ride[<%= index %>][platform_id]" value=<%= ride.platform.id %>>
+  <input type="hidden" name="ride[<%= index %>][city_id]" value=<%= ride.city.id %>>
+  <input type="hidden" name="ride[<%= index %>][ETA]" value=<%= ride.ETA %>>
+  <input type="hidden" name="ride[<%= index %>][fare]" value=<%= ride.fare %>>
+  <input type="hidden" name="ride[<%= index %>][category]" value=<%= ride.category %>>
+  <input type="hidden" name="ride[<%= index %>][link_to_app]" value=<%= ride.link_to_app %>>
 <label for="<%= index %>">
-  <%# DIV %>
   <div class="ride-info d-flex align-items-center">
     <div class="d-flex align-items-center">
       <%= image_tag "uber-logo.png", alt: "Logo", class: "ride-logos" %>
@@ -10,5 +17,7 @@
       <p>$ <%= ride.fare %></p>
     </div>
   </div>
-  <input type="radio" name="ride" id="<%= index %>" class="hide-me">
 </label>
+<%# The 'name="index"' is very important to find the selected ride in the params' rides!!  %>
+<input type="radio" value="<%= index %>" name="index" id="<%= index %>" class="hide-me">
+</fieldset>

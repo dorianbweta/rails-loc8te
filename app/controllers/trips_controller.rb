@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: %i[new create]
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
@@ -12,15 +11,18 @@ class TripsController < ApplicationController
   end
 
   def new # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
-    start_location = Location.create(address: params[:trip][:start_location])
-    end_location = Location.create(address: params[:trip][:end_location])
-    @trip = Trip.new(start_location: start_location, end_location: end_location)
+    @start_location = Location.create(address: params[:trip][:start_location])
+    @end_location = Location.create(address: params[:trip][:end_location])
+    @start_array = [@start_location.longitude, @start_location.latitude]
+    @end_array = [@end_location.longitude, @end_location.latitude]
+    @trip = Trip.new(start_location: @start_location, end_location: @end_location)
     if user_signed_in?
       @trip.user = current_user
     else
       @trip.user = User.find_by_email("visitor@gmail.com")
     end
 
+    # generates an array of rides that I pass to the 'trip_create_controller.js' via the 'new' view
     city = City.find_by_name("New York") # in a real scenario we should evaluate the city based on the trip pickup location
     @rides = []
     city.platforms.each do |platform|
@@ -39,11 +41,12 @@ class TripsController < ApplicationController
   end
 
   def create
-    @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:build_link_to_app(@trip))
-    @uber_ride.link_to_app = build_link_to_app(@trip)
-    @uber_ride.user_id = current_user.id
-    @uber_ride.save
-    @trip.update(ride_id: @uber_ride.id)
+    @selected_ride = Ride.new(ride_params)
+    raise
+    # @selected_ride.link_to_app = build_link_to_app(@trip)
+    @selected_ride.user_id = current_user.id
+    @selected_ride.save
+    @trip.update(ride_id: @selected_ride.id)
 
     respond_to do |format|
       if @trip.persisted?
@@ -64,13 +67,13 @@ class TripsController < ApplicationController
 
   private
 
-  def trip_params
-    params.require(:trip).permit(:start_location_id, :end_location_id)
+  def ride_params
+    params.require(:ride).permit(:platform, :city, :ETA, :fare, :category, :link_to_app)
   end
 
-  def set_trip
-    @trip = Trip.find(params[:id])
-  end
+  # def trip_params
+  #   params.require(:trip).permit(:start_location_id, :end_location_id)
+  # end
 
   def build_link_to_app(trip)
     return 'https://m.uber.com/ul/?' +
