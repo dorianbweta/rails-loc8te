@@ -12,15 +12,16 @@ export default class extends Controller {
       types: "country,region,place,postcode,locality,neighborhood,address,poi"
     })
     this.geocoder.addTo(this.element)
-    this.geocoder.on("result", event => this.#setInputValue(event))
+    this.geocoder.on("result", event => this.setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
 
   }
 
-  #setInputValue(event) {
+  setInputValue(event) {
     console.log("hello")
     const selectedPlace = event.result.place_name
     this.locationTarget.value = selectedPlace
+    this.dispatch("setInputValue", { detail: { content: selectedPlace, id: this.locationTarget.id } })
   }
 
   #clearInputValue() {
