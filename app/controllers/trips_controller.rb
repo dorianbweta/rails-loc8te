@@ -1,17 +1,17 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: %i[show edit update]
+  before_action :set_trip, only: %i[new create]
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
     @trips = Trip.where(user_id: current_user.id)
   end
 
-  def new
+  # create a new trip WITHOUT saving in DB
+  def search
     @trip = Trip.new
-    @destination = Destination.find
   end
 
-  def create
+  def new # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
     start_location = Location.create(address: params[:trip][:start_location])
     end_location = Location.create(address: params[:trip][:end_location])
     @trip = Trip.new(start_location: start_location, end_location: end_location)
@@ -20,20 +20,11 @@ class TripsController < ApplicationController
     else
       @trip.user = User.find_by_email("visitor@gmail.com")
     end
-    if @trip.save
-      #redirect_to root_path(end: end_location.id)
-       redirect_to trip_path(@trip.id)
-    end
-  end
 
-  def show;end
-
-  def edit # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
     city = City.find_by_name("New York") # in a real scenario we should evaluate the city based on the trip pickup location
     @rides = []
     city.platforms.each do |platform|
       available_rides_per_platform = rand(2..3)
-
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
@@ -47,7 +38,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def update
+  def create
     @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:build_link_to_app(@trip))
     @uber_ride.link_to_app = build_link_to_app(@trip)
     @uber_ride.user_id = current_user.id
@@ -66,6 +57,9 @@ class TripsController < ApplicationController
       end
     end
 
+    if @trip.save
+      redirect_to trips
+    end
   end
 
   private
