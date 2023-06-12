@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center">
   <div style="float:left;">
-    <%= simple_form_for @trip do |f| %>
+    <%= simple_form_for @trip, url: new_trip_path, method: "get" do |f| %>
       <%= f.input :start_location,
         input_html: {
           data: { address_autocomplete_target: "location" },
