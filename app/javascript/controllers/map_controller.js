@@ -10,7 +10,7 @@ export default class extends Controller {
       container: this.element,
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [115.2625, -8.5069],
+      center: [-79.4512, 43.6568],
       zoom: 13
     });
 
