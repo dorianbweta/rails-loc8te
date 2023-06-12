@@ -7,9 +7,18 @@ export default class extends Controller {
   static targets = ["location"]
 
   connect() {
+    let placeholder = ""
+    console.log(this.locationTarget.id);
+    if (this.locationTarget.id === "trip_start_location") {
+      placeholder =  "Pickup Point"
+    } else {
+      placeholder =  "Destination"
+    }
+
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
-      types: "country,region,place,postcode,locality,neighborhood,address,poi"
+      types: "country,region,place,postcode,locality,neighborhood,address,poi",
+      placeholder: placeholder
     })
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.setInputValue(event))
