@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="trip-update"
+// Connects to data-controller="trip-create"
 export default class extends Controller {
   static values = {
     link: String
