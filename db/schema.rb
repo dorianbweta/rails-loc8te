@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_063534) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_072356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,13 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_063534) do
   create_table "rides", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "platform_id", null: false
-    t.bigint "city_id", null: false
     t.integer "ETA"
     t.float "fare"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "link_to_app"
+    t.string "path_image"
+    t.bigint "city_id", null: false
     t.index ["city_id"], name: "index_rides_on_city_id"
     t.index ["platform_id"], name: "index_rides_on_platform_id"
     t.index ["user_id"], name: "index_rides_on_user_id"

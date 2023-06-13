@@ -21,3 +21,6 @@ application.register("select-location", SelectLocationController)
 
 import TripCreateController from "./trip_create_controller"
 application.register("trip-create", TripCreateController)
+
+import RidesController from "./rides_controller"
+application.register("rides", RidesController)
