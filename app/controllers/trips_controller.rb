@@ -30,11 +30,11 @@ class TripsController < ApplicationController
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
-          city: city,
           ETA: rand(15..25),
           fare: rand(20..100),
           category: Ride::CATEGORIES.sample,
-          link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : ""
+          link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : "",
+          path_image: "#{platform.name.downcase}-logo.png"
         )
       end
     end
