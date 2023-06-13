@@ -1,38 +1,32 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: %i[show edit update]
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
     @trips = Trip.where(user_id: current_user.id)
   end
 
-  def new
+  # create a new trip WITHOUT saving in DB
+  def search
     @trip = Trip.new
   end
 
-  def create
-    start_location = Location.create(address: params[:trip][:start_location])
-    end_location = Location.create(address: params[:trip][:end_location])
-    @trip = Trip.new(start_location: start_location, end_location: end_location)
+  def new # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
+    @start_location = Location.create(address: params[:trip][:start_location])
+    @end_location = Location.create(address: params[:trip][:end_location])
+    @start_array = [@start_location.longitude, @start_location.latitude]
+    @end_array = [@end_location.longitude, @end_location.latitude]
+    @trip = Trip.new(start_location: @start_location, end_location: @end_location)
     if user_signed_in?
       @trip.user = current_user
     else
       @trip.user = User.find_by_email("visitor@gmail.com")
     end
-    if @trip.save
-      #redirect_to root_path(end: end_location.id)
-       redirect_to trip_path(@trip.id)
-    end
-  end
 
-  def show;end
-
-  def edit # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
+    # generates an array of rides that I pass to the 'trip_create_controller.js' via the 'new' view
     city = City.find_by_name("New York") # in a real scenario we should evaluate the city based on the trip pickup location
     @rides = []
     city.platforms.each do |platform|
       available_rides_per_platform = rand(2..3)
-
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
@@ -46,12 +40,19 @@ class TripsController < ApplicationController
     end
   end
 
-  def update
-    @ride = Ride.new(platform_id: Platform.last.id, city_id: City.last.id, ETA: 15, fare: 20, category: 'green', link_to_app:build_link_to_app(@trip))
-    @uber_ride.link_to_app = build_link_to_app(@trip)
-    @uber_ride.user_id = current_user.id
-    @uber_ride.save
-    @trip.update(ride_id: @uber_ride.id)
+  def create
+    puts selected_ride_index = params[:index].to_i
+    puts @selected_ride = Ride.new(params[:ride][selected_ride_index])
+    @selected_ride.user_id = current_user.id
+    @selected_ride.save
+    puts @trip = Trip.new(
+      start_location: Location.find(params[:trip_start].to_i),
+      end_location: Location.find(params[:trip_end].to_i),
+      user_id: params[:trip_user].to_i
+    )
+    @trip.update(ride_id: @selected_ride.id)
+    puts @trip
+    raise
 
     respond_to do |format|
       if @trip.persisted?
@@ -65,17 +66,20 @@ class TripsController < ApplicationController
       end
     end
 
+    if @trip.save
+      redirect_to trips
+    end
   end
 
   private
 
-  def trip_params
-    params.require(:trip).permit(:start_location_id, :end_location_id)
-  end
-
   def set_trip
     @trip = Trip.find(params[:id])
   end
+
+  # def ride_params
+  #   params.require(:ride).permit(:platform, :city, :ETA, :fare, :category, :link_to_app)
+  # end
 
   def build_link_to_app(trip)
     return 'https://m.uber.com/ul/?' +
