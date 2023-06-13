@@ -165,7 +165,6 @@ puts "Gathering all rides..."
 ride1 = Ride.create!(
   user_id: moses.id,
   platform_id: uber.id,
-  city_id: nevada.id,
   ETA: 23,
   fare: 300,
   category: "luxury",
@@ -183,7 +182,6 @@ trip1 = Trip.create!(
 ride2 = Ride.create!(
   user_id: moses.id,
   platform_id: uber.id,
-  city_id: nevada.id,
   ETA: 33,
   fare: 20,
   category: "economy",
@@ -200,7 +198,6 @@ trip2 = Trip.create!(
 ride3 = Ride.create!(
   user_id: moses.id,
   platform_id: lyft.id,
-  city_id: nevada.id,
   ETA: 18,
   fare: 30,
   category: "green",
@@ -217,7 +214,6 @@ trip3 = Trip.create!(
 ride4 = Ride.create!(
   user_id: dorian.id,
   platform_id: uber.id,
-  city_id: newyork.id,
   ETA: 18,
   fare: 30,
   category: "green",
