@@ -32,6 +32,7 @@ class TripsController < ApplicationController
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
+          city: city,
           ETA: rand(15..25),
           fare: rand(20..100),
           category: Ride::CATEGORIES.sample,
@@ -69,21 +70,16 @@ class TripsController < ApplicationController
     # if a client sends a request to create a new trip and expects the response in HTML format,
     # the format.html block in the respond_to block is executed.
     # If the client sends the request in JSON format, the format.json block is executed
-    # respond_to do |format|
-    #   if @trip.persisted?
-    #     @ok = true
-    #     format.json
-    #     format.html { redirect_to trips_path }
-    #   else
-    #     @ok = false
-    #     format.json
-    #     format.html { render 'trips/new' }
-    #   end
-    # end
-
-    # redirects the user to the Uber app if trip saved successfully
-    if @trip.save
-      redirect_to trips_path
+    respond_to do |format|
+      if @trip.persisted?
+        @ok = true
+        format.json
+        format.html { redirect_to trips_path }
+      else
+        @ok = false
+        format.json
+        format.html { render 'trips/new' }
+      end
     end
   end
 
