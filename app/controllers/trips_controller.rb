@@ -32,6 +32,7 @@ class TripsController < ApplicationController
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
+          city: city,
           ETA: rand(15..25),
           fare: rand(20..100),
           category: Ride::CATEGORIES.sample,
@@ -43,19 +44,32 @@ class TripsController < ApplicationController
   end
 
   def create
-    puts selected_ride_index = params[:index].to_i
-    puts @selected_ride = Ride.new(params[:ride][selected_ride_index])
+    # creates a new Trip object with data obtained from the params hash.
+    # updates the ride_id of the Trip object to the id of the Ride object just created.
+    p selected_ride_index = params["index"]
+    p data = params["ride"][selected_ride_index]
+    p data
+    @selected_ride = Ride.new(
+      platform_id: data["platform_id"],
+      city_id: data["city_id"],
+      ETA: data["ETA"],
+      fare: data["fare"],
+      category: data["category"],
+      link_to_app: data["link_to_app"]
+    )
     @selected_ride.user_id = current_user.id
     @selected_ride.save
-    puts @trip = Trip.new(
-      start_location: Location.find(params[:trip_start].to_i),
-      end_location: Location.find(params[:trip_end].to_i),
+    @trip = Trip.new(
+      start_location: Location.find(params["trip_start"].to_i),
+      end_location: Location.find(params["trip_end"].to_i),
       user_id: params[:trip_user].to_i
     )
     @trip.update(ride_id: @selected_ride.id)
-    puts @trip
-    raise
+    @trip.ride_id
 
+    # if a client sends a request to create a new trip and expects the response in HTML format,
+    # the format.html block in the respond_to block is executed.
+    # If the client sends the request in JSON format, the format.json block is executed
     respond_to do |format|
       if @trip.persisted?
         @ok = true
@@ -64,20 +78,16 @@ class TripsController < ApplicationController
       else
         @ok = false
         format.json
-        format.html { render 'trips/show' }
+        format.html { render 'trips/new' }
       end
-    end
-
-    if @trip.save
-      redirect_to trips
     end
   end
 
   private
 
-  def set_trip
-    @trip = Trip.find(params[:id])
-  end
+  # def set_trip
+  #   @trip = Trip.find(params[:id])
+  # end
 
   # def ride_params
   #   params.require(:ride).permit(:platform, :city, :ETA, :fare, :category, :link_to_app)
