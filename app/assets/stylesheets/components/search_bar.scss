@@ -17,8 +17,6 @@
 
 .mapboxgl-ctrl-geocoder--input {
   background: #FFFFFF !important;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   height: 46px;
   width: 360px;
   align-items: center;
@@ -27,6 +25,11 @@
   text-align: center;
   padding-left: 40px !important;
   z-index: -1 !important;
+  border-width: 5px !important;
+  border-color: black !important;
+  font-family: "Inter" !important;
+  border-radius: 20px !important;
+  border: 0.5px solid black !important;
 }
 
 .mapboxgl-ctrl-geocoder {
@@ -34,6 +37,7 @@
   width: auto !important;
   min-width: auto !important;
   max-width: initial !important;
+  border-radius: 30px !important;
 }
 
 .search-bars-box {
@@ -41,13 +45,43 @@
   align-items: center;
   justify-content: space-between;
   width: 360px;
-  margin: 0 auto;
+  margin: 0 30px;
+
 
   .logo {
-    width: 100%; /* Adjust the width and height to fit your image */
-    height: 100%;
+    width: 80px; /* Adjust the width and height to fit your image */
+    height: 80px;
     z-index: 1;
     object-fit: cover;
     float: right !important;
+
   }
+
+
+}
+
+.saved-locations {
+  background-color: #FFFFFF !important;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  margin-right: 5px;
+  border: 0.5px solid black;
+  font-family: "Inter";
+}
+
+.scrollable-wrapper {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of list items */
+  margin: 0 32px; /* Add space on both sides horizontally */
+}
+
+.scrollable-list {
+  display: inline-block; /* Display the list items in a row */
+  list-style-type: none; /* Remove default list styles */
+  padding-left: 0rem !important;
 }

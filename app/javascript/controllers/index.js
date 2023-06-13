@@ -18,3 +18,6 @@ application.register("navbar", NavbarController)
 
 import TripCreateController from "./trip_create_controller"
 application.register("trip-create", TripCreateController)
+
+import RidesController from "./rides_controller"
+application.register("rides", RidesController)
