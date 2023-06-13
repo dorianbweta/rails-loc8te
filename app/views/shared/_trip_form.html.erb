@@ -1,42 +1,41 @@
 <div class = "search-bars-box">
-  <div>
-    <div id="start-location-button"style="float:top; width: 280px;">
-      <%= simple_form_for @trip, url: new_trip_path, method: "get" do |f| %>
-        <%= f.input :start_location,
-          input_html: {
-            data: { address_autocomplete_target: "location" },
-            class: "d-none",
-          },
-          placeholder: "Start location",
-          label: false,
-          wrapper_html: {
-            data: {
-              controller: "address-autocomplete",
-              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+  <%= simple_form_for @trip, url: new_trip_path, method: "get", html: {class:"d-flex align-items-center"} do |f| %>
+    <div>
+      <div id="start-location-button"style="float:top; width: 280px;">
+          <%= f.input :start_location,
+            input_html: {
+              data: { address_autocomplete_target: "location" },
+              class: "d-none",
+            },
+            placeholder: "Start location",
+            label: false,
+            wrapper_html: {
+              data: {
+                controller: "address-autocomplete",
+                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+              }
             }
-          }
-        %>
-    </div>
-    <div style="float:bottom; width: 280px;">
-      <%= f.input :end_location,
-          input_html: {
-            data: { address_autocomplete_target: "location" },
-            class: "d-none"
-          },
-          label: false,
-          wrapper_html: {
-            data: {
-              controller: "address-autocomplete",
-              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+          %>
+      </div>
+      <div style="float:bottom; width: 280px;">
+        <%= f.input :end_location,
+            input_html: {
+              data: { address_autocomplete_target: "location" },
+              class: "d-none"
+            },
+            label: false,
+            wrapper_html: {
+              data: {
+                controller: "address-autocomplete",
+                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+              }
             }
-          }
-        %>
+          %>
+      </div>
     </div>
-  </div>
-
-  <div id="submit-button">
-    <%= f.submit '', class: "submit-button" %>
-    <%= image_tag "just-logo.png", alt: "Logo", class: "logo" %>
-    <% end %>
-  </div>
+    <div id="submit-button">
+      <%= f.submit '', class: "submit-button" %>
+      <%= image_tag "just-logo.png", alt: "Logo", class: "logo" %>
+    </div>
+  <% end %>
 </div>

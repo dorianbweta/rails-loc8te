@@ -8,6 +8,8 @@ class TripsController < ApplicationController
   # create a new trip WITHOUT saving in DB
   def search
     @trip = Trip.new
+    @histories = Trip.where(user_id: current_user.id)
+    @locations = current_user.end_locations.where.not(name: nil)
   end
 
   def new # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip
@@ -30,11 +32,11 @@ class TripsController < ApplicationController
       available_rides_per_platform.times do
         @rides << Ride.new(
           platform: platform,
-          city: city,
           ETA: rand(15..25),
           fare: rand(20..100),
           category: Ride::CATEGORIES.sample,
-          link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : ""
+          link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : "",
+          path_image: "#{platform.name.downcase}-logo.png"
         )
       end
     end

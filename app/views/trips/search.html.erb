@@ -1,1 +1,40 @@
+<<<<<<< HEAD
 <%= render "shared/test_form"%>
+=======
+<div class="container">
+  <div class="home-card d-flex justify-content-center">
+    <h3>Hello! Where would you like to go to today?</h3>
+  </div>
+</div>
+<%= render "shared/trip_form"%>
+<div class="scrollable-wrapper">
+  <ul class="scrollable-list">
+    <% @locations.each do |location| %>
+      <li class="saved-locations"><%= location.name %></li>
+    <% end %>
+  </ul>
+</div>
+ <div class="container-history my-1" style="height: 55vh">
+    <% 5.times do %>
+      <% @histories.each do |history| %>
+  <div class="card-product">
+  <div class="title">
+  <h2><%= history.end_location.name %></h1>
+  <hr>
+  </div>
+    <div class="card-product-infos d-flex">
+      <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/uber_icon_146079.png"/>
+      <div class="trip-info">
+        <p><strong>From:</strong> <%= history.start_location.name %></p>
+        <p><strong>To:</strong> <%= history.end_location.name %></p>
+
+      </div>
+      <div class="date">
+        <h2><%= history.created_at.strftime("%d.%m.%Y") %></h2>
+      </div>
+    </div>
+  </div>
+      <% end %>
+    <% end %>
+</div>
+>>>>>>> master

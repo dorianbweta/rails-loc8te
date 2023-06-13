@@ -73,12 +73,12 @@ puts "Creating platforms..."
 
 uber = Platform.create!(
   name: "Uber",
-  rating: 4.9
+  rating: 4.9,
 )
 
 lyft = Platform.create!(
   name: "Lyft",
-  rating: 4.5
+  rating: 4.5,
 )
 
 arro = Platform.create!(
@@ -168,7 +168,8 @@ ride1 = Ride.create!(
   ETA: 23,
   fare: 300,
   category: "luxury",
-  link_to_app: ""
+  link_to_app: "",
+  image_path: "uber-logo.png"
 )
 
 trip1 = Trip.create!(
@@ -224,4 +225,8 @@ trip4 = Trip.create!(
   ride_id: ride4.id,
   start_location_id: uberhq.id,
   end_location_id: coittower.id
+)
+
+ride5 = Ride.create!(
+  user_id
 )
