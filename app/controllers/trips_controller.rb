@@ -41,13 +41,17 @@ class TripsController < ApplicationController
   end
 
   def create
-    puts selected_ride_index = params[index]
-    puts @selected_ride = Ride.new(params["ride"][selected_ride_index])
+    puts selected_ride_index = params[:index].to_i
+    puts @selected_ride = Ride.new(params[:ride][selected_ride_index])
     @selected_ride.user_id = current_user.id
     @selected_ride.save
-    raise
-    puts @trip = params["trip"]
+    puts @trip = Trip.new(
+      start_location: Location.find(params[:trip_start].to_i),
+      end_location: Location.find(params[:trip_end].to_i),
+      user_id: params[:trip_user].to_i
+    )
     @trip.update(ride_id: @selected_ride.id)
+    puts @trip
     raise
 
     respond_to do |format|
