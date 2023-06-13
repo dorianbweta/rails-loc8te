@@ -1,11 +1,8 @@
 #submit-button input[type="submit"] {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 
 #submit-button {
@@ -27,11 +24,15 @@
   z-index: -1 !important;
   border-width: 5px !important;
   border-color: black !important;
+<<<<<<< HEAD
+  font-family: “Inter” !important;
+  border-radius: 100px !important;
+=======
   font-family: "Inter" !important;
   border-radius: 20px !important;
+>>>>>>> master
   border: 0.5px solid black !important;
 }
-
 .mapboxgl-ctrl-geocoder {
   margin: 0 !important;
   width: auto !important;
@@ -39,15 +40,17 @@
   max-width: initial !important;
   border-radius: 30px !important;
 }
-
 .search-bars-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 360px;
   margin: 0 30px;
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> master
   .logo {
     width: 80px; /* Adjust the width and height to fit your image */
     height: 80px;
@@ -84,4 +87,8 @@
   display: inline-block; /* Display the list items in a row */
   list-style-type: none; /* Remove default list styles */
   padding-left: 0rem !important;
+}
+
+.start-location-button {
+  border-radius: 30px;
 }
