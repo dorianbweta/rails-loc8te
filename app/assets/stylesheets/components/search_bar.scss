@@ -59,3 +59,29 @@
 
 
 }
+
+.saved-locations {
+  background-color: #FFFFFF !important;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  margin-right: 5px;
+  border: 0.5px solid black;
+  font-family: "Inter";
+}
+
+.scrollable-wrapper {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of list items */
+  margin: 0 32px; /* Add space on both sides horizontally */
+}
+
+.scrollable-list {
+  display: inline-block; /* Display the list items in a row */
+  list-style-type: none; /* Remove default list styles */
+  padding-left: 0rem !important;
+}
