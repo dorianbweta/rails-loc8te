@@ -4,9 +4,11 @@
   </div>
 </div>
 
-<div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-action="address-autocomplete:setInputValue->map#getRoute">
-  <%= render "shared/trip_form"%>
-
+<div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="fake-trip-form d-flex">
+    <%= link_to "Your current location", trips_search_path, class: "button-primary" %>
+    <%= link_to "Search for a destination", trips_search_path, class: "button-primary" %>
+  </div>
   <div class = "map">
     <%= render "shared/map" %>
   </div>
