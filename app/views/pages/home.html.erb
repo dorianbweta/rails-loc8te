@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 <%= render "shared/splash"%>
+=======
+<div class="container">
+  <div class="home-card d-flex justify-content-center">
+    <h3>Hello! Where would you like to go to today?</h3>
+  </div>
+</div>
+
+<div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-action="address-autocomplete:setInputValue->map#getRoute">
+  <%= render "shared/trip_form"%>
+
+  <div class = "map">
+    <%= render "shared/map" %>
+  </div>
+</div>
+
+<% if params[:end] %>
+  <div class="overlay"></div>
+  <div>
+    <%= simple_form_for @location do |f| %>
+      <%= f.input :name %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <%= link_to "Skip", trips_path %>
+<% end %>
+
+<%= render "layouts/homepage" %>
+>>>>>>> master
