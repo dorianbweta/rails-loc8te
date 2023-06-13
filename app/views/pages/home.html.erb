@@ -4,11 +4,13 @@
   </div>
 </div>
 
-<%= render "shared/trip_form"%>
+<div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-action="address-autocomplete:setInputValue->map#getRoute">
+  <%= render "shared/trip_form"%>
 
-
-<%= render "shared/map" %>
-
+  <div class = "map">
+    <%= render "shared/map" %>
+  </div>
+</div>
 
 <% if params[:end] %>
   <div class="overlay"></div>
