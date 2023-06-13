@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm">
+  <div class="container-fluid d-flex justify-content-between">
+    <div class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag "logo-white.png", alt: "Logo", class: "logo" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container" data-controller="navbar">
+		<button
+      id="burger"
+      class="open-main-nav"
+      data-navbar-target="burger"
+      data-action="click->navbar#openMenu">
+			<span class="burger"></span>
+			<span class="burger-text">Menu</span>
+		</button>
+		<nav class="main-nav" id="main-nav" data-navbar-target="nav">
+			<ul>
+        <% if user_signed_in? %>
+				<li>
+					<%= link_to "My Account", "#", class: "dropdown-item" %>
+				</li>
+				<li>
+					<%= link_to "My Trips", trips_path, class: "dropdown-item" %>
+				</li>
+				<li>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+        </li>
+        <% end %>
+			</ul>
+		</nav>
+	</div>
+</div>

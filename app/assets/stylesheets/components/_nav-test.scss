@@ -1,3 +1,19 @@
+.navbar {
+  background-color: #14213D;
+  color: whitesmoke;
+  height: 80px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
 /* Main menu positionning */
 .main-nav {
   position: absolute;
@@ -27,7 +43,7 @@
   bottom: 0;
   left: 0;
   right: -15px;
-  background: #FEDC2A;
+  background: #14213D;
   transform-origin: 0 0;
   transform: skew(-14deg) translateX(-120%);
   transition: all .275s .1s;
@@ -90,7 +106,7 @@ padding: 0;
 .main-nav a {
 display: block;
 padding: 12px 0;
-color: #5A3B5D;
+color: orange;
 font-size: 1.4em;
 text-decoration: none;
 font-weight: bold;
@@ -116,7 +132,7 @@ display: block;
 width: 28px;
 height: 4px;
 margin: 0 auto;
-background: #5A3B5D;
+background: orange;
 transform: skew(5deg);
 transition: all .275s;
 }
@@ -126,7 +142,7 @@ transition: all .275s;
 content: '';
 display: block;
 height: 100%;
-background: #5A3B5D;
+background: orange;
 transition: all .275s;
 }
 
@@ -156,100 +172,16 @@ transform: translateY(-12px) translateX(10px) skew(-20deg);
 
 .burger-text {
 display: block;
-font-size: .675rem;
+font-size: 12px;
 letter-spacing: .05em;
 margin-top: .5em;
 text-transform: uppercase;
 font-weight: 500;
 text-align: center;
-color: #5A3B5D;
+color: orange;
 }
 
-.device {
-position: relative;
-width: 345px;
-height: 600px;
-background: #FFF;
-border: 1px solid #EEE;
-border-radius: 3px;
-box-shadow: 0 0 0 10px rgba(0,0,0,.1);
-}
 
-.container {
-position: absolute;
-top: 0; right: 0;
-bottom: 0; left: 0;
-overflow: hidden;
-background: linear-gradient(to bottom, #eee, #ddd);
-}
-
-html {
-height: 100%;
-}
-body {
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-/* Slow motion button */
-[id="slowmo"] {
-position: absolute;
-top: 20px;
-right: 20px;
-padding: 10px;
-border: 0;
-font-size: 1rem;
-background: #FEDC2A;
-color: #5A3B5D;
-font-weight: bold;
-cursor: pointer;
-transition: all .275s;
-}
-
-[id="slowmo"] span {
-display: block;
-font-weight: normal;
-}
-
-[id="slowmo"]:hover,
-[id="slowmo"]:focus {
-background: #5A3B5D;
-color: #FEDC2A;
-}
-
-[id="slowmo"].is-slowmo span:after {
-content: 'Activated';
-display: block;
-font-weight: bold;
-}
-
-/* When slowmotion is activated */
-
-.is-slowmo + .device .open-main-nav .burger,
-.is-slowmo + .device .open-main-nav .burger:before,
-.is-slowmo + .device .open-main-nav .burger:after,
-.is-slowmo + .device .main-nav,
-.is-slowmo + .device .main-nav::before,
-.is-slowmo + .device .main-nav a {
-transition-duration: 3s;
-}
-.is-slowmo + .device .main-nav li:nth-child(1) a {
-transition-delay: 1750ms
-}
-.is-slowmo + .device .main-nav li:nth-child(2) a {
-transition-delay: 2250ms
-}
-.is-slowmo + .device .main-nav li:nth-child(3) a {
-transition-delay: 2750ms
-}
-.is-slowmo + .device .main-nav li:nth-child(4) a {
-transition-delay: 3250ms
-}
-.is-slowmo + .device .main-nav li:nth-child(5) a {
-transition-delay: 3750ms
-}
 
 /* Notice */
 .notice {

@@ -1,0 +1,31 @@
+
+	<div class="intro">
+		<%= image_tag "logo-white.png", alt: "Logo", class: "splash-logo" %>
+	</div>
+	<main>
+		<div class="content">
+      <%= render "shared/navbar_test" %>
+      <div class="container">
+        <div class="home-card d-flex justify-content-center">
+          <h3>Hello! Where would you like to go to today?</h3>
+        </div>
+      </div>
+
+      <%= render "shared/trip_form"%>
+
+
+      <%= render "shared/map" %>
+
+      <%= render "layouts/homepage" %>
+      <% if params[:end] %>
+        <div class="overlay"></div>
+        <div>
+          <%= simple_form_for @location do |f| %>
+            <%= f.input :name %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+        <%= link_to "Skip", trips_path %>
+      <% end %>
+    </div>
+	</main>
