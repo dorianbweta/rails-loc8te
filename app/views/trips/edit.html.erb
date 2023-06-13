@@ -22,19 +22,13 @@
           <% end %>
         </div>
          <div class="ride-category">
-          <h2>Economy</h2>
+          <h2>Green</h2>
           <% @rides.each_with_index do |ride, index| %>
             <%= render "ride_checkbox", ride: ride, index: index %>
           <% end %>
         </div>
         <div class="ride-category">
-          <h2>Economy</h2>
-          <% @rides.each_with_index do |ride, index| %>
-            <%= render "ride_checkbox", ride: ride, index: index %>
-          <% end %>
-        </div>
-         <div class="ride-category">
-          <h2>Economy</h2>
+          <h2>Luxury</h2>
           <% @rides.each_with_index do |ride, index| %>
             <%= render "ride_checkbox", ride: ride, index: index %>
           <% end %>
