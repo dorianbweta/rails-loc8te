@@ -4,7 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="map"
 export default class extends Controller {
   static targets = ["map"]
-  static values = { apiKey: String }
+  static values = {
+    apiKey: String,
+    startLocation: Array,
+    endLocation: Array
+  }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -16,6 +20,15 @@ export default class extends Controller {
       zoom: 13
     });
 
+    console.log(this.startLocationValue);
+    console.log(this.endLocationValue);
+
+    this.startPoint = this.startLocationValue
+    this.endPoint = this.endLocationValue
+
+    this.getDirection()
+    this.#fitMapToMarkers()
+
     // map.addControl(
     //     new MapboxDirections({
     //         accessToken: mapboxgl.accessToken
@@ -24,6 +37,7 @@ export default class extends Controller {
     // );
   }
 
+  // generates the itinerary
   async getDirection() {
     const start = this.startPoint
     const end = this.endPoint
@@ -77,23 +91,31 @@ export default class extends Controller {
     //this.#getInstructions(data)
   }
 
-  getRoute({detail}){
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${detail.content}.json?&access_token=${mapboxgl.accessToken}`
-    fetch(url)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data.features[0].center);
-        if (detail.id === "trip_start_location") {
-          this.startPoint = data.features[0].center
-        } else if (detail.id === "trip_end_location") {
-          this.endPoint = data.features[0].center
-        }
+  // getRoute(){
+  //   // get the params start location address
+  //   // convert the address to long lat
+  //   // save the long lat as this.startPoint
 
-        if (this.startPoint && this.endPoint) {
-          this.getDirection();
-        }
-      })
-  }
+  //   // get the params end location address
+  //   // convert the address to long lat
+  //   // save the long lat as this.endPoint
+
+  //   // run this.getDirection();
+
+  //   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${startAddress}.json?&access_token=${mapboxgl.accessToken}`
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       console.log(data.features[0].center);
+  //       this.startPoint = data.features[0].center
+  //       this.endPoint = data.features[0].center
+
+  //     })
+
+  //   if (this.startPoint && this.endPoint) {
+  //     this.getDirection();
+  //   }
+  // }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
