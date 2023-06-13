@@ -41,12 +41,14 @@ class TripsController < ApplicationController
   end
 
   def create
-    @selected_ride = Ride.new(ride_params)
-    raise
-    # @selected_ride.link_to_app = build_link_to_app(@trip)
+    puts selected_ride_index = params[index]
+    puts @selected_ride = Ride.new(params["ride"][selected_ride_index])
     @selected_ride.user_id = current_user.id
     @selected_ride.save
+    raise
+    puts @trip = params["trip"]
     @trip.update(ride_id: @selected_ride.id)
+    raise
 
     respond_to do |format|
       if @trip.persisted?
@@ -67,12 +69,12 @@ class TripsController < ApplicationController
 
   private
 
-  def ride_params
-    params.require(:ride).permit(:platform, :city, :ETA, :fare, :category, :link_to_app)
+  def set_trip
+    @trip = Trip.find(params[:id])
   end
 
-  # def trip_params
-  #   params.require(:trip).permit(:start_location_id, :end_location_id)
+  # def ride_params
+  #   params.require(:ride).permit(:platform, :city, :ETA, :fare, :category, :link_to_app)
   # end
 
   def build_link_to_app(trip)

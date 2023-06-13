@@ -20,4 +20,8 @@
 </label>
 <%# The 'name="index"' is very important to find the selected ride in the params' rides!!  %>
 <input type="radio" value="<%= index %>" name="index" id="<%= index %>" class="hide-me">
+<%# Is needed to identify the @trip in the 'create' action %>
+<input type="hidden" name="trip_start" value=<%= @trip.start_location.id %>>
+<input type="hidden" name="trip_end" value=<%= @trip.end_location.id %>>
+<input type="hidden" name="trip_user" value=<%= @trip.user.id %>>
 </fieldset>
