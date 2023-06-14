@@ -11,7 +11,7 @@
   <%# DIV %>
   <div class="ride-info d-flex align-items-center bg-whitesmoke" data-rides-target="infobox" data-action="click->rides#updateBackground" >
     <div class="d-flex align-items-center">
-      <%= image_tag "uber-logo.png", alt: "Logo", class: "ride-logos" %>
+      <%= image_tag ride.path_image, alt: "Logo", class: "ride-logos" %>
       <%#= image_tag ride.path_image, alt: "Logo", class: "ride-logos" %>
       <h3> <%= ride.platform.name.capitalize %> </h3>
     </div>
