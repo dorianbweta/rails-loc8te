@@ -15,13 +15,13 @@
   </div>
 </div>
 
-<div class="container-history my-1">
+<div class="container-history my-1" id="history-card">
   <% current_user.end_locations.uniq.each do |location| %>
     <div class="card-product">
       <div class="title">
         <h2><%= location.address %></h1>
         <p><%= location.name %></p>
-        <%= link_to "Add Location", edit_location_path(location) %>
+        <%= link_to "Save Location", edit_location_path(location) %>
         <hr>
       </div>
     </div>
