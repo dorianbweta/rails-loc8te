@@ -44,6 +44,6 @@ export default class extends Controller {
   }
 
   disconnect() {
-    // this.geocoder.onRemove()
+    this.geocoder.onRemove()
   }
 }

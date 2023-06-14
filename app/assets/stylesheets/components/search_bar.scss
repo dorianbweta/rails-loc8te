@@ -13,6 +13,7 @@
 }
 
 .mapboxgl-ctrl-geocoder--input {
+  font-family: "Inter" !important;
   background: #FFFFFF !important;
   height: 36px !important;
   width: 360px;
@@ -20,11 +21,10 @@
   justify-content: center;
   margin: 20px;
   text-align: center;
-  padding-left: 40px !important;
+  padding: 18px !important;
   z-index: -1 !important;
   border-width: 5px !important;
   border-color: black !important;
-  font-family: “Inter” !important;
   border-radius: 30px !important;
   border: 0.5px solid black !important;
 }
@@ -69,15 +69,19 @@
   font-family: "Inter";
 }
 
+.saved-locations.active {
+  background-color: #FCA311 !important;
+}
+
 .scrollable-wrapper {
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent wrapping of list items */
-  margin: 0 32px; /* Add space on both sides horizontally */
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0 32px;
 }
 
 .scrollable-list {
-  display: inline-block; /* Display the list items in a row */
-  list-style-type: none; /* Remove default list styles */
+  display: inline-block;
+  list-style-type: none;
   padding-left: 0rem !important;
 }
 
@@ -86,9 +90,47 @@
 }
 
 #history-card {
-  height: 550px;
-  position: fixed;
-  bottom: 20px;
-  left:0;
-  right:0;
+  height: 540px;
+  box-shadow:none !important;
+}
+
+.card-address img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 25px;
+  width: 25px;
+}
+
+.card-address h2 {
+  font-size: 16px;
+}
+
+.save-location-container {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 360px;
+  align-items: center;
+  border-radius: 30px;
+  padding: 30px 30px;
+  background-color: whitesmoke;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+#save-location-button {
+  background-color: $orange;
+  color: white;
+  border-radius: 40px;
+  padding: 12px 20px;
+  margin: 10px;
+  border: 0px;
+  width: 170px;
+  text-decoration: none;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search {
+  display: none !important;
+}
+
+.m-0 {
+  padding-left: 8px;
 }

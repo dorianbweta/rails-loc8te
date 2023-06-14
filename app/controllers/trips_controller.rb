@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index]
+  skip_before_action :authenticate_user!, only: %i[index search new]
 
   def index
     @trips = Trip.where(user_id: current_user.id)
@@ -8,7 +8,13 @@ class TripsController < ApplicationController
   # create a new trip WITHOUT saving in DB
   def search
     @trip = Trip.new
-    @locations = current_user.end_locations.where.not(name: nil)
+    if user_signed_in?
+      @saved_locations = current_user.end_locations.where.not(name: nil)
+      @locations = current_user.end_locations.uniq
+    else
+      @saved_locations = []
+      @locations = []
+    end
   end
 
   def new # list of rides for a trip, in this page we're connecting a trip to a ride -> editing and updating trip

@@ -8,22 +8,29 @@
   <%= render "shared/trip_form"%>
   <div class="scrollable-wrapper">
     <ul class="scrollable-list">
-      <% @locations.each do |location| %>
+      <% @saved_locations.each do |location| %>
         <li class="saved-locations" data-action="click->select-location#updateInput" data-address="<%= location.address %>"><%= location.name %></li>
       <% end %>
     </ul>
   </div>
 </div>
 
-<div class="container-history my-1" id="history-card">
-  <% current_user.end_locations.uniq.each do |location| %>
-    <div class="card-product">
-      <div class="title">
-        <h2><%= location.address %></h1>
-        <p><%= location.name %></p>
-        <%= link_to "Save Location", edit_location_path(location) %>
-        <hr>
+<div class="container-history my-1 p-3" id="history-card">
+  <% @locations.each do |location| %>
+    <div class="card-address">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 class="flex-grow-1"><%= location.address %></h1>
+        <%= link_to  edit_location_path(location) do %>
+          <i class="fa-regular fa-bookmark" style="color: #E67E22;"></i>
+        <% end %>
       </div>
+      <% if location.name %>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-location-dot"style="color: #E67E22;"></i>
+          <p class="m-0"><%= location.name %></p>
+        </div>
+      <% end %>
     </div>
+    <hr>
   <% end %>
 </div>

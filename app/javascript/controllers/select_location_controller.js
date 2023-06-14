@@ -17,6 +17,7 @@ export default class extends Controller {
     }
 
     this.input.value = address;
+    event.currentTarget.classList.add("active")
   }
 
   setFocusedInput({ detail }) {
