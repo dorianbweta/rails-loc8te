@@ -8,14 +8,17 @@
   <div class="home-card-dark d-flex justify-content-center">
     <h2>Available ride-sharing apps in your area</h2>
   </div>
+<hr>
 </div>
+
 
 <div class="container">
   <div class="row justify-content-center">
       <div class="rides">
-      <%= image_tag "uber-logo.png", alt: "Logo", class: "ride-logos" %>
-      <%= image_tag "lyft-logo.png", alt: "Logo", class: "ride-logos" %>
-      <%#= image_tag "curb-logo.png", alt: "Logo", class: "ride-logos" %>
-
+      <%= link_to image_tag("uber-logo.png", alt: "Logo", class: "ride-logos"), "https://www.uber.com/", target: "_blank" %>
+      <%= link_to image_tag("lyft-logo.png", alt: "Logo", class: "ride-logos"), "https://www.lyft.com/", target: "_blank" %>
+      <%= link_to image_tag("curb-logo.png", alt: "Logo", class: "ride-logos"), "https://www.gocurb.com/", target: "_blank" %>
+      <%= link_to image_tag("via-logo.png", alt: "Logo", class: "ride-logos"), "https://ridewithvia.com/", target: "_blank" %>
+      <%= link_to image_tag("arro-logo.png", alt: "Logo", class: "ride-logos"), "https://www.ridearro.com/", target: "_blank" %>
   </div>
 </div>

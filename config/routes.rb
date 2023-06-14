@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :trips, only: %i[new create index] do
     resources :rides, only: :new
   end
-  resources :locations, only: :update
+  resources :locations, only: [:update, :edit]
 end
