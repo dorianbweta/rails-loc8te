@@ -8,7 +8,6 @@ export default class extends Controller {
 
   connect() {
     let placeholder = ""
-    console.log(this.locationTarget.id);
     if (this.locationTarget.id === "trip_start_location") {
       placeholder =  "Pickup Point"
     } else {
@@ -24,6 +23,13 @@ export default class extends Controller {
     this.geocoder.on("result", event => this.setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
 
+    console.dir(this.geocoder.container.children[1]);
+    const input = this.geocoder.container.children[1]
+    input.addEventListener("focus", (event) => this.passFocusedInput(event))
+  }
+
+  passFocusedInput(event) {
+    this.dispatch("passFocusedInput", { detail: event.currentTarget })
   }
 
   setInputValue(event) {

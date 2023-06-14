@@ -4,7 +4,10 @@
       <div id="start-location-button"style="float:top; width: 280px;">
           <%= f.input :start_location,
             input_html: {
-              data: { address_autocomplete_target: "location" },
+              data: {
+                address_autocomplete_target: "location",
+                select_location_target: "start"
+              },
               class: "d-none",
             },
             placeholder: "Start location",
@@ -20,7 +23,10 @@
       <div style="float:bottom; width: 280px;">
         <%= f.input :end_location,
             input_html: {
-              data: { address_autocomplete_target: "location" },
+              data: {
+                address_autocomplete_target: "location",
+                select_location_target: "end"
+              },
               class: "d-none"
             },
             label: false,
