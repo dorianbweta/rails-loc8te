@@ -1,5 +1,11 @@
-<%= simple_form_for @location do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.submit %>
-<% end %>
+<div class="save-location-container">
+  <%= simple_form_for @location do |f| %>
+    <%= f.input :name, required: true %>
+    <br>
+    <p> Location: <strong> <%= @location.address %> <strong></p>
+    <br>
+    <div>
+      <%= f.submit "Save Location", class:"button-primary w-100 m-0"%>
+    </div>
+  <% end %>
+</div>
