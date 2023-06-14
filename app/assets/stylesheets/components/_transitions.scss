@@ -26,16 +26,15 @@ main {
 	justify-content: center;
 	align-items: center;
 	transform: scale(0, 0);
-	overflow: hidden;
+	overflow: auto;
   transform: scale(0, 0);
   animation: fadeInText 2s ease forwards 1s;
-  overflow: hidden;
 }
 
 .content {
 	width: 100%;
 	text-align: center;
-
+  overflow: auto;
 }
 
 @keyframes animate {
@@ -82,23 +81,3 @@ main {
 }
 
 ////////////////
-
-
-.slide-enter {
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.slide-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide-exit {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.slide-exit-active {
-  opacity: 0;
-  transform: translateY(-100%);
-}
