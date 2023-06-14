@@ -74,14 +74,14 @@
 }
 
 .scrollable-wrapper {
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent wrapping of list items */
-  margin: 0 32px; /* Add space on both sides horizontally */
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0 32px;
 }
 
 .scrollable-list {
-  display: inline-block; /* Display the list items in a row */
-  list-style-type: none; /* Remove default list styles */
+  display: inline-block;
+  list-style-type: none;
   padding-left: 0rem !important;
 }
 
@@ -91,17 +91,8 @@
 
 #history-card {
   height: 540px;
-  position:sticky;
-  bottom: 20px;
-  left:0;
-  right:0;
   box-shadow:none !important;
 }
-
-// #submit-button {
-//   float:right;
-//   align-items: center;
-// }
 
 .card-address img {
   -o-object-fit: cover;
