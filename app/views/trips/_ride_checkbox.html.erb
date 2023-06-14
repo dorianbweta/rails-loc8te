@@ -1,30 +1,31 @@
 <fieldset>
-<%# following inputs are used to pass information to the 'create' action %>
+  <%# following inputs are used to pass information to the 'create' action %>
   <input type="hidden" name="ride[<%= index %>][platform_id]" value=<%= ride.platform.id %>>
   <input type="hidden" name="ride[<%= index %>][city_id]" value=<%= ride.city.id %>>
   <input type="hidden" name="ride[<%= index %>][ETA]" value=<%= ride.ETA %>>
   <input type="hidden" name="ride[<%= index %>][fare]" value=<%= ride.fare %>>
   <input type="hidden" name="ride[<%= index %>][category]" value=<%= ride.category %>>
   <input type="hidden" name="ride[<%= index %>][link_to_app]" value=<%= ride.link_to_app %>>
-  <%#Style width changed%>
-<label for="<%= index %>" style="width: 100%;">
-  <%# DIV %>
-  <div class="ride-info d-flex align-items-center bg-whitesmoke" data-rides-target="infobox" data-action="click->rides#updateBackground" >
-    <div class="d-flex align-items-center">
+  <%# Style width changed %>
+  <label for="<%= index %>" style="width: 100%;">
+    <%# DIV %>
+    <div class="ride-info" data-rides-target="infobox" data-action="click->rides#updateBackground" >
       <%= image_tag ride.path_image, alt: "Logo", class: "ride-logos" %>
-      <%#= image_tag ride.path_image, alt: "Logo", class: "ride-logos" %>
-      <h3> <%= ride.platform.name.capitalize %> </h3>
+      <div class="align-self-center">
+          <h3><strong><%= ride.platform.name.capitalize %></strong></h3>
+        <div>
+          <p><%= ride.ETA %> min • <%= ride.category %></p>
+        </div>
+      </div>
+      <div class="align-self-center">
+        <p>$ <%= ride.fare %></p>
+      </div>
     </div>
-    <div class="d-flex align-items-center">
-      <p><%= ride.ETA %> min</p>
-      <p>$ <%= ride.fare %></p>
-    </div>
-  </div>
-</label>
-<%# The 'name="index"' is very important to find the selected ride in the params' rides!!  %>
-<input type="radio" value="<%= index %>" name="index" id="<%= index %>" class="hide-me">
-<%# Is needed to identify the @trip in the 'create' action %>
-<input type="hidden" name="trip_start" value=<%= @trip.start_location.id %>>
-<input type="hidden" name="trip_end" value=<%= @trip.end_location.id %>>
-<input type="hidden" name="trip_user" value=<%= @trip.user.id %>>
+  </label>
+  <%# The 'name="index"' is very important to find the selected ride in the params' rides!!  %>
+  <input type="radio" value="<%= index %>" name="index" id="<%= index %>" class="hide-me">
+  <%# Is needed to identify the @trip in the 'create' action %>
+  <input type="hidden" name="trip_start" value=<%= @trip.start_location.id %>>
+  <input type="hidden" name="trip_end" value=<%= @trip.end_location.id %>>
+  <input type="hidden" name="trip_user" value=<%= @trip.user.id %>>
 </fieldset>
