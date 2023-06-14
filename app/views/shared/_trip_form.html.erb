@@ -1,7 +1,7 @@
 <div class = "search-bars-box">
-  <%= simple_form_for @trip, url: new_trip_path, method: "get", html: {class:"d-flex align-items-center"} do |f| %>
+  <%= simple_form_for @trip, url: new_trip_path, method: "get", html: {class: "d-flex align-items-center", style: "width: 326px;"} do |f| %>
     <div>
-      <div id="start-location-button"style="float:top; width: 280px;">
+      <div id="start-location-button"style="float:top; width: 240px;">
           <%= f.input :start_location,
             input_html: {
               data: {
@@ -20,7 +20,7 @@
             }
           %>
       </div>
-      <div style="float:bottom; width: 280px;">
+      <div style="float:bottom; width: 240px;">
         <%= f.input :end_location,
             input_html: {
               data: {

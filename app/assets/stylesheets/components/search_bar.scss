@@ -10,6 +10,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  transform: translate(9px, -7px);
 }
 
 .mapboxgl-ctrl-geocoder--input {
@@ -27,6 +28,7 @@
   border-color: black !important;
   border-radius: 30px !important;
   border: 0.5px solid black !important;
+  font-size: 14px !important;
 }
 .mapboxgl-ctrl-geocoder {
   margin: 0 !important;
@@ -57,7 +59,7 @@
 
 .saved-locations {
   background-color: #FFFFFF !important;
-  padding: 5px 20px;
+  padding: 3px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -65,8 +67,8 @@
   border-radius: 20px;
   text-transform: capitalize;
   margin-right: 5px;
-  border: 0.5px solid black;
   font-family: "Inter";
+  font-size: 13px;
 }
 
 .saved-locations.active {

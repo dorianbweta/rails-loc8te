@@ -13,6 +13,7 @@
 
     <form action="/trips" method="post"
           data-controller="trip-create"
+          data-trip-create-user-value="<%= user_signed_in? %>"
           data-action="submit->trip-create#create"
           data-trip-create-rides-value="<%= @rides %>"
           data-trip-create-link-value="<%= @rides.first.link_to_app %>"
