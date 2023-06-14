@@ -17,9 +17,12 @@
 
     <form action="/trips" method="post"
           data-controller="trip-create"
-          data-action="submit->trip-create#create">
+          data-action="submit->trip-create#create"
+          data-trip-create-rides-value="<%= @rides %>"
+          data-trip-create-link-value="<%= @rides.first.link_to_app %>"
+          >
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <div class="container">
+      <div data-controller="rides">
         <div class="ride-category">
           <h2>Economy</h2>
           <% @rides.each_with_index do |ride, index| %>
