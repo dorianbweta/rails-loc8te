@@ -9,10 +9,10 @@ export default class extends Controller {
 
   updateBackground(event) {
     this.infoboxTargets.forEach((box) => {
-      box.classList.remove("bg-red")
+      box.classList.remove("bg-gray")
       box.classList.add("bg-whitesmoke")
     })
     event.currentTarget.classList.remove("bg-whitesmoke")
-    event.currentTarget.classList.add("bg-red")
+    event.currentTarget.classList.add("bg-gray")
   }
 }
