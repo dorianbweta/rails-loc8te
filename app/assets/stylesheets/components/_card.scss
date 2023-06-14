@@ -14,30 +14,26 @@
 }
 
 .ride-info {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: whitesmoke;
   border-radius: 5px;
   margin: 4px 8px;
-  flex-wrap: wrap;
   padding: 10px;
-  justify-content: space-between;
   min-height: 80px;
 
   p {
     margin: 0rem;
-    padding: 4px;
   }
 
   h3 {
     margin: 0rem;
     font-weight: 600;
-    color: orange;
-    padding-left: 10px;
     font-size: 20px;
   }
 
   .ride-logos {
     width: 60px;
-    justify-content: center;
-    align-items: center;
   }
   transition: background-color 0.4s ease;
 }
@@ -53,7 +49,7 @@
 }
 
 .bg-gray {
-  background-color: rgba(193, 217, 221, 0.7);
+  background-color: rgb(251, 229, 186);
 }
 
 .sticky-btn {
