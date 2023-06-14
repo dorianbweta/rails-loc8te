@@ -6,7 +6,8 @@
   <input type="hidden" name="ride[<%= index %>][fare]" value=<%= ride.fare %>>
   <input type="hidden" name="ride[<%= index %>][category]" value=<%= ride.category %>>
   <input type="hidden" name="ride[<%= index %>][link_to_app]" value=<%= ride.link_to_app %>>
-<label for="<%= index %>">
+  <%#Style width changed%>
+<label for="<%= index %>" style="width: 100%;">
   <%# DIV %>
   <div class="ride-info d-flex align-items-center bg-whitesmoke" data-rides-target="infobox" data-action="click->rides#updateBackground" >
     <div class="d-flex align-items-center">
