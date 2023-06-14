@@ -74,14 +74,14 @@
 }
 
 .scrollable-wrapper {
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent wrapping of list items */
-  margin: 0 32px; /* Add space on both sides horizontally */
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0 32px;
 }
 
 .scrollable-list {
-  display: inline-block; /* Display the list items in a row */
-  list-style-type: none; /* Remove default list styles */
+  display: inline-block;
+  list-style-type: none;
   padding-left: 0rem !important;
 }
 
@@ -91,17 +91,8 @@
 
 #history-card {
   height: 540px;
-  position:sticky;
-  bottom: 20px;
-  left:0;
-  right:0;
   box-shadow:none !important;
 }
-
-// #submit-button {
-//   float:right;
-//   align-items: center;
-// }
 
 .card-address img {
   -o-object-fit: cover;
@@ -115,16 +106,14 @@
 }
 
 .save-location-container {
+  margin: 0 auto;
+  margin-top: 40px;
   width: 360px;
   align-items: center;
   border-radius: 30px;
   padding: 30px 30px;
   background-color: whitesmoke;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -80%);
 }
 
 #save-location-button {
