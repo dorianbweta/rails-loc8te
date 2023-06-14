@@ -1,0 +1,104 @@
+
+
+.splash-logo {
+	opacity: 0;
+	animation: fadeIn 1s ease forwards,  fade-out 2s 1s ease-out forwards;
+  width: 200px;
+  height: auto;
+}
+
+
+.intro {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  background-color: #14213D;
+  animation: fade-out 2.5s 1.2s ease-out forwards;
+}
+
+main {
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: scale(0, 0);
+	overflow: hidden;
+  transform: scale(0, 0);
+  animation: fadeInText 2s ease forwards 1s;
+  overflow: hidden;
+}
+
+.content {
+	width: 100%;
+	text-align: center;
+
+}
+
+@keyframes animate {
+	0% {
+		transform: scale(0, 0.005);
+	}
+	50% {
+		transform: scaleY(0.005);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes fadeInText {
+	from {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+////////////////
+
+
+.slide-enter {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.slide-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slide-exit {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.slide-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+}

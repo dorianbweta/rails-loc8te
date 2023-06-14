@@ -1,6 +1,6 @@
 <div class="full-page">
 
-  <div class="container">
+  <div class="container" style="padding-right: 0px;">
     <div class="home-card d-flex justify-content-center">
       <h3>View the available options below!</h3>
     </div>
@@ -17,9 +17,12 @@
 
     <form action="/trips" method="post"
           data-controller="trip-create"
-          data-action="submit->trip-create#create">
+          data-action="submit->trip-create#create"
+          data-trip-create-rides-value="<%= @rides %>"
+          data-trip-create-link-value="<%= @rides.first.link_to_app %>"
+          >
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <div class="container">
+      <div data-controller="rides">
         <div class="ride-category">
           <h2>Economy</h2>
           <% @rides.each_with_index do |ride, index| %>

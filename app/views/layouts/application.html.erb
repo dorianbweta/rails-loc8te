@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <%= render 'shared/ios_pwa_links' %>
   </head>
 
   <body>
     <div class="page-container">
-      <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <div class="navbar-container">
+        <%= render "shared/navbar_test" %>
+      </div>
       <%= render "shared/flashes" %>
-      <div class="content-container"><%= yield %></div>
+      <div class="content-container">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
