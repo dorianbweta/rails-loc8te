@@ -11,7 +11,7 @@ export default class extends Controller {
     if (this.locationTarget.id === "trip_start_location") {
       placeholder =  "Pickup Point"
     } else {
-      placeholder =  "Destination"
+      placeholder =  "Where would you like to go?"
     }
 
     this.geocoder = new MapboxGeocoder({
