@@ -21,14 +21,14 @@
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <div data-controller="rides">
         <div class="ride-category">
-          <h2>Economy</h2>
+          <h2>Choose your ride</h2>
           <% @rides.each_with_index do |ride, index| %>
             <%= render "ride_checkbox", ride: ride, index: index %>
           <% end %>
         </div>
-      <div class="sticky-btn">
-        <input type="submit" value="Book Now!" class="button-primary">
-        <%= link_to "Go back to searching", :back, class: "button-primary" %>
+      <div class="sticky-btn d-flex justify-content-center">
+        <input type="submit" value="Book Now!" class="button-primary-large">
+        <%#= link_to "Go back to searching", :back, class: "button-primary" %>
       </div>
       </div>
     </form>
