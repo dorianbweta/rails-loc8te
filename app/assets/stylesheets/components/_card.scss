@@ -1,11 +1,12 @@
 .ride-category {
-  height: 100%;
   background-color: #14213D;
   padding: 12px;
   display: grid;
   width: 100%;
+  overflow: scroll;
+  height: 53vh;
 
-  h2 {
+ h2 {
     color: whitesmoke;
     margin: 0rem;
     padding: 10px 24px;
@@ -18,7 +19,7 @@
   flex-wrap: wrap;
   padding: 10px;
   justify-content: space-between;
-  min-height: 80px
+  min-height: 80px;
 
   p {
     margin: 0rem;
@@ -51,13 +52,46 @@
   background-color: whitesmoke;
 }
 
-.bg-red {
-  background-color: rgba(191, 210, 214, 0.4);
+.bg-gray {
+  background-color: rgba(193, 217, 221, 0.7);
 }
 
 .sticky-btn {
   position: sticky;
-  top: calc(70vh - 60px);
+  bottom: 0;
   background-color: #14213D;
   width: 100%;
+}
+
+.trip-overlay-left {
+  position: absolute;
+}
+
+.trip-overlay {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  width: 80%;
+}
+
+.trip-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  height: 46px;
+  width: 360px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 12%;
+
+  h3 {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+    margin: 0rem;
+    padding: 10px 10px;
+  }
 }

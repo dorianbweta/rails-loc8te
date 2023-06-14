@@ -1,14 +1,10 @@
 <div class="full-page">
-
-  <div class="container" style="padding-right: 0px;">
-    <div class="home-card d-flex justify-content-center">
+    <div class="trip-card d-flex justify-content-center">
       <h3>View the available options below!</h3>
     </div>
 
     <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-start-location-value="<%= @start_array.to_json %>" data-map-end-location-value="<%= @end_array.to_json %>">
-      <div class="fake-trip-form d-flex">
-        <%= link_to "Your current location", :back, class: "button-primary" %>
-        <%= link_to "Search for a destination", :back, class: "button-primary" %>
+      <div class="trip-overlay d-flex">
       </div>
       <div class = "map">
         <%= render "shared/map" %>
@@ -29,10 +25,11 @@
           <% @rides.each_with_index do |ride, index| %>
             <%= render "ride_checkbox", ride: ride, index: index %>
           <% end %>
-          <input type="submit" value="Book Now!" class="button-primary">
         </div>
+      <div class="sticky-btn">
+        <input type="submit" value="Book Now!" class="button-primary">
+        <%= link_to "Go back to searching", :back, class: "button-primary" %>
+      </div>
       </div>
     </form>
-
-  </div>
 </div>
