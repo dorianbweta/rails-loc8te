@@ -14,11 +14,15 @@
       <div class="align-self-center">
           <h3><strong><%= ride.platform.name.capitalize %></strong></h3>
         <div>
-          <p><%= ride.ETA %> min • <%= ride.category %></p>
+          <p><%= ride.ETA %> min </p>
         </div>
       </div>
       <div class="align-self-center">
-        <p>$ <%= ride.fare %></p>
+        <p>~$ <%= ride.fare %></p>
+        <div class="<%= ride.category.downcase %>">
+          <div class="dot"></div>
+          <span class="btn-general text align-self-center"><%= ride.category %></span>
+        </div>
       </div>
     </div>
   </label>
