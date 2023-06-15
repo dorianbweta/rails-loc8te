@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index search new]
 
   def index
-    @trips = Trip.where(user_id: current_user.id)
+    @trips = Trip.where(user_id: current_user.id).order('created_at DESC')
     @trips.map do |trip|
       trip.ride.path_image = "#{trip.ride.platform.name.downcase}-logo.png" if trip.ride.path_image.nil?
     end
