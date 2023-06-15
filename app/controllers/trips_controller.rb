@@ -119,7 +119,7 @@ class TripsController < ApplicationController
       "dropoff[latitude]": trip.end_location.latitude,
       "dropoff[longitude]": trip.end_location.longitude,
       "dropoff[nickname]": trip.end_location.name,
-    }.to_query
+    }.to_query.gsub(/\+/, "%20")
     # 'product_id=a1111c8c-c720-46c3-8534-2fcdd730040d'
   end
 end
