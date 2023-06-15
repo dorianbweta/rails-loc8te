@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import {transitionItem} from "./transition"
-transitionItem();
+import {sliderItem} from "./slider"
+
+sliderItem();
