@@ -21,8 +21,10 @@ export default class extends Controller {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          window.open(data.link_to_app, '_blank');
-          window.location.href = data.redirect
+          window.location.href = data.link_to_app;
+          setTimeout(() => window.location.href = data.redirect,
+            500
+          )
         })
     }
   }
