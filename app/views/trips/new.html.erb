@@ -1,7 +1,4 @@
 <div class="full-page">
-    <div class="trip-card d-flex justify-content-center">
-      <h3>View the available options below!</h3>
-    </div>
 
     <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-start-location-value="<%= @start_array.to_json %>" data-map-end-location-value="<%= @end_array.to_json %>">
       <div class="trip-overlay d-flex">
@@ -27,7 +24,7 @@
           <% end %>
         </div>
       <div class="sticky-btn d-flex justify-content-center">
-        <input type="submit" value="Book Now!" class="button-primary-large">
+        <input type="submit" value="Book Now!" class="button-primary-full">
         <%#= link_to "Go back to searching", :back, class: "button-primary" %>
       </div>
       </div>

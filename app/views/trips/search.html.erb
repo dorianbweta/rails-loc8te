@@ -2,7 +2,7 @@
 <div data-controller="select-location" data-action="address-autocomplete:passFocusedInput->select-location#setFocusedInput">
   <%= render "shared/trip_form"%>
   <div class="scrollable-wrapper">
-    <ul class="scrollable-list" style="margin-bottom: 2px;">
+    <ul class="scrollable-list" style="margin-bottom: 20px;">
       <% @saved_locations.each do |location| %>
         <li class="saved-locations" data-action="click->select-location#updateInput" data-address="<%= location.address %>"><%= location.name %></li>
       <% end %>

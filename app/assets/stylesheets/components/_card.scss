@@ -9,7 +9,8 @@
  h2 {
     color: black;
     margin: 0rem;
-    padding: 10px 24px;
+    padding: 10px 16px;
+    font-weight: 700;
   }
 }
 
@@ -17,16 +18,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   gap: 10px;
-  background-color: whitesmoke;
-  border: 1px solid #14213D;
+  background-color: #dae8f3;
   margin: 4px 8px;
   padding: 10px;
   min-height: 80px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
+
   p {
     margin: 0rem;
+    font-weight: 500;
   }
 
   h3 {
@@ -76,21 +78,26 @@
 }
 
 .bg-whitesmoke {
-  background-color: whitesmoke;
+  background-color: #dae8f3;;
 }
 
 .bg-gray {
   background-color: #14213D;
   color: white;
+
   .text {
     color: black;
+  }
+
+  h2 {
+    color: white;
   }
 }
 
 .sticky-btn {
   position: sticky;
   bottom: 0;
-  background-color: #14213D;
+  background-color: transparent;
   width: 100%;
 }
 
@@ -136,4 +143,17 @@
   position: absolute;
   top: -37%;
   left: 70%;
+}
+
+.price-text {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  h2 {
+    padding: 0px;
+    font-size: 22px;
+    font-weight: 600;
+  }
 }

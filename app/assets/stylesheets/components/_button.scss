@@ -14,14 +14,13 @@
   color: white;
   text-transform: uppercase;
   border-radius: 40px;
-  // width: 320px;
-  // text-align: center;
-  // text-decoration: none;
   padding: 12px 20px;
   margin: 10px;
   border: 0px;
   text-decoration: none;
-  width: 100%;
+  width: 80%;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .button-primary-large {
@@ -57,6 +56,7 @@
   p {
     margin: 0rem;
     padding-left: 5px;
+    text-decoration: none;
   }
 
 }
