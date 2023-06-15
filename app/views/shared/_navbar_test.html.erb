@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm">
-  <div class="container-fluid d-flex justify-content-between">
+  <div class="container-fluid d-flex justify-content-start">
     <div class="logo">
       <%= link_to root_path do %>
         <%= image_tag "logo-white.png", alt: "Logo", class: "logo" %>
@@ -22,6 +22,9 @@
         <% if user_signed_in? %>
 				<li>
 					<%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
+				</li>
+        <li>
+					<%= link_to "Go Somewhere", trips_search_path, class: "dropdown-item" %>
 				</li>
 				<li>
 					<%= link_to "My Trips", trips_path, class: "dropdown-item" %>

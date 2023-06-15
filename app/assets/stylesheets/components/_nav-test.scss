@@ -6,6 +6,10 @@
   top: 0;
 }
 
+.navbar-container {
+  background-color: $light-blue;
+}
+
 .logo {
   width: 120px;
   height: auto;
@@ -19,7 +23,7 @@
   left: 0;
   bottom: 0;
   text-align: center;
-  background: #FFF;
+  background: $light-blue;
   opacity: 0;
   z-index: -1;
   visibility: hidden;
