@@ -3,6 +3,9 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.where(user_id: current_user.id)
+    @trips.map do |trip|
+      trip.ride.path_image = "#{trip.ride.platform.name.downcase}-logo.png" if trip.ride.path_image.nil?
+    end
   end
 
   # create a new trip WITHOUT saving in DB

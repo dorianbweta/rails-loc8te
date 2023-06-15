@@ -1,8 +1,8 @@
 .header {
   font-weight: 900;
-  margin-left: 25px;
-  margin-bottom: 15px;
-  margin-top: 45px
+  margin-left: 32px;
+  /* margin-bottom: 15px; */
+  margin-top: 45px;
 }
 
 .card-product {
@@ -10,17 +10,14 @@
   height: 130px;
   display: flex;
   align-items: center;
-  margin: 20px;
+  margin: 0 10px;
   flex-wrap: wrap;
+
   img {
     object-fit: cover;
     height: 50px;
     width: 50px;
   }
-}
-
-.card-product hr {
-  border-top: 1px solid gray;
 }
 
 .card-product h2 {
@@ -44,16 +41,16 @@
 }
 
 .container-history {
-  background: white;
-  border-radius: 30px;
+  /* background: white; */
+  /* border-radius: 30px; */
   padding-left: 4px;
   padding-right: 4px;
-  padding-top: 5px;
+  /* padding-top: 5px; */
   max-width: 90%;
   margin-right: 32px;
   margin-left: 32px;
-  height: 77vh;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 80vh;
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
   overflow: scroll;
 }
 
@@ -66,6 +63,6 @@
 }
 
 .trip-info {
-  margin-right: auto;
-  margin-left: 1em;
+  margin-right: 10px;
+  margin-left: 20px
 }
