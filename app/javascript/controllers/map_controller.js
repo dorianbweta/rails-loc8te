@@ -20,21 +20,14 @@ export default class extends Controller {
       zoom: 13
     });
 
-    console.log(this.startLocationValue);
-    console.log(this.endLocationValue);
+
 
     this.startPoint = this.startLocationValue
     this.endPoint = this.endLocationValue
 
-    this.getDirection()
-    this.#fitMapToMarkers()
-
-    // map.addControl(
-    //     new MapboxDirections({
-    //         accessToken: mapboxgl.accessToken
-    //     }),
-    //     'top-left'
-    // );
+    this.map.on('load', () => {
+      this.getDirection()
+    })
   }
 
   // generates the itinerary
