@@ -37,14 +37,13 @@
   max-width: initial !important;
   border-radius: 30px !important;
 }
+
 .search-bars-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 360px;
   margin: 0 30px;
-
-
   .logo {
     width: 80px;
     height: 80px;
@@ -53,8 +52,6 @@
     float: right !important;
 
   }
-
-
 }
 
 .saved-locations {
@@ -73,6 +70,7 @@
 
 .saved-locations.active {
   background-color: #FCA311 !important;
+  color: white;
 }
 
 .scrollable-wrapper {
@@ -92,8 +90,13 @@
 }
 
 #history-card {
-  height: 540px;
+  height: 70vh;
   box-shadow:none !important;
+  p {
+    margin-top: 0;
+    /* margin-bottom: 1rem; */
+    margin-bottom: 4px;
+  }
 }
 
 .card-address img {
@@ -133,6 +136,6 @@
   display: none !important;
 }
 
-.m-0 {
-  padding-left: 8px;
+i {
+  padding-right: 8px;
 }

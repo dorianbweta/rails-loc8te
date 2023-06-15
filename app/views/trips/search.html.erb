@@ -10,21 +10,23 @@
   </div>
 </div>
 
-<div class="container-history my-1 p-3" id="history-card">
+<div class="container-history my-3" id="history-card">
   <% @locations.each do |location| %>
     <div class="card-address">
       <div class="d-flex justify-content-between align-items-center">
-        <h2 class="flex-grow-1"><%= location.address %></h1>
-        <%= link_to  edit_location_path(location) do %>
-          <i class="fa-regular fa-bookmark" style="color: #E67E22;"></i>
+        <i class="fa-solid fa-clock-rotate-left fa-xl" style="color: #858585"></i>
+        <div class="trip-info">
+          <% if location.name %>
+            <p><strong><%= location.name %></strong></p>
+          <% end %>
+          <p><%= location.address %></p>
+        </div>
+        <% if location.name.nil? %>
+          <% link_to  edit_location_path(location) do %>
+            <i class="fa-solid fa-bookmark fa-xl" style="color: #FCA311;"></i>
+          <% end %>
         <% end %>
       </div>
-      <% if location.name %>
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-location-dot"style="color: #E67E22;"></i>
-          <p class="m-0"><%= location.name %></p>
-        </div>
-      <% end %>
     </div>
     <hr>
   <% end %>
