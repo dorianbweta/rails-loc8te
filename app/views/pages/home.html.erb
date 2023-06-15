@@ -1,25 +1,24 @@
 <div class="container">
-  <div class="background-image d-flex justify-content-center">
-    <%= image_tag "background-image.png", class: "background-image" %>
-  </div>
-    <div class="home-card-main d-flex justify-content-center">
-      <h3>Hello! Where would you like to go to today?</h3>
-    </div>
+  <!-- <div class="background-image d-flex justify-content-center"> -->
+    <%#= image_tag "background-image.png", class: "background-image" %>
+  <!-- </div> -->
+    <!-- <div class="home-card-main d-flex justify-content-center"> -->
+    <!-- </div> -->
 </div>
 
 <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box">
-  <div class="fake-trip-form d-flex">
-    <%= link_to trips_search_path, class: "fake-button-1 pulse" do %>
+  <div class="map">
+    <%= render "shared/map_home" %>
+  </div>
+  <div class="fake-trip-form">
+    <%= link_to trips_search_path, class: "fake-button pulse" do %>
       <%= image_tag("gps.png", alt: "Image Description", class: "gps-icon") %>
       <p>Your current location</p>
     <% end %>
-    <%= link_to trips_search_path, class: "fake-button-2 pulse" do %>
+    <%= link_to trips_search_path, class: "fake-button pulse" do %>
       <%= image_tag("gps.png", alt: "Image Description", class: "gps-icon") %>
-      <p>Search a destination</p>
+      <p>Where do you want to go?</p>
     <% end %>
-  </div>
-  <div class="map">
-    <%= render "shared/map" %>
   </div>
 </div>
 

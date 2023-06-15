@@ -1,27 +1,5 @@
-	<div class="intro">
-		<%= image_tag "logo-white.png", alt: "Logo", class: "splash-logo" %>
-	</div>
 	<main>
 		<div class="content">
-      <%= render "shared/navbar_test" %>
-      <div class="container">
-        <div class="background-image d-flex justify-content-center">
-          <%= image_tag "background-image.png", class: "background-image" %>
-        </div>
-          <div class="home-card-main d-flex justify-content-center">
-            <h3>Hello! Where would you like to go to today?</h3>
-          </div>
-      </div>
 
-        <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box">
-          <div class="fake-trip-form d-flex">
-            <%= link_to "Your current location", trips_search_path, class: "fake-button-1" %>
-            <%= link_to "Search for a destination", trips_search_path, class: "fake-button-2" %>
-          </div>
-          <div class="map">
-            <%= render "shared/map" %>
-          </div>
-        </div>
-      <%= render "layouts/homepage" %>
     </div>
 	</main>
