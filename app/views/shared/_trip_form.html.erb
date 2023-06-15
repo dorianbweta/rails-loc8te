@@ -1,43 +1,43 @@
 <div class = "search-bars-box">
-  <%= simple_form_for @trip, url: new_trip_path, method: "get", html: {class: "d-flex align-items-center", style: "width: 326px;"} do |f| %>
-    <div>
-      <div id="start-location-button"style="float:top; width: 240px;">
-          <%= f.input :start_location,
-            input_html: {
-              data: {
-                address_autocomplete_target: "location",
-                select_location_target: "start"
-              },
-              class: "d-none",
+  <%= simple_form_for @trip, url: new_trip_path, method: "get", html: {class: "d-flex align-items-center", style: "width: 326px; margin-bottom: 12px;"} do |f| %>
+    <div id="search-location"style="width: 248px; box-shadow: none;">
+        <%= f.input :start_location,
+          input_html: {
+            data: {
+              address_autocomplete_target: "location",
+              select_location_target: "start"
             },
-            placeholder: "Start location",
-            label: false,
-            wrapper_html: {
-              data: {
-                controller: "address-autocomplete",
-                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
-              }
+            class: "d-none",
+          },
+          placeholder: "Start location",
+          label: false,
+          wrapper_html: {
+            class: "input-destination-location",
+            id: "start-location-button",
+            data: {
+              controller: "address-autocomplete",
+              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
             }
-          %>
-      </div>
-      <div style="float:bottom; width: 240px;">
-        <%= f.input :end_location,
-            input_html: {
-              data: {
-                address_autocomplete_target: "location",
-                select_location_target: "end"
-              },
-              class: "d-none"
+          }
+        %>
+      <%= f.input :end_location,
+          input_html: {
+            data: {
+              address_autocomplete_target: "location",
+              select_location_target: "end"
             },
-            label: false,
-            wrapper_html: {
-              data: {
-                controller: "address-autocomplete",
-                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
-              }
+            class: "d-none"
+          },
+          label: false,
+          wrapper_html: {
+            class: "input-destination-location",
+            id: "end-location-button",
+            data: {
+              controller: "address-autocomplete",
+              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
             }
-          %>
-      </div>
+          }
+        %>
     </div>
     <div id="submit-button">
       <%= f.submit '', class: "submit-button" %>
