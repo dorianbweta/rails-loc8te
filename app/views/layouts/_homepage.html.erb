@@ -1,19 +1,16 @@
 <div class="container">
-<hr>
   <div class="home-card-dark d-flex justify-content-center">
     <h2>Available ride-sharing apps in your area</h2>
   </div>
-<hr>
 </div>
 
-
-<div class="container">
+<div class="container-scroll">
   <div class="row justify-content-center">
-      <div class="rides">
-      <%= link_to image_tag("uber-logo.png", alt: "Logo", class: "ride-logos"), "https://www.uber.com/", target: "_blank" %>
-      <%= link_to image_tag("lyft-logo.png", alt: "Logo", class: "ride-logos"), "https://www.lyft.com/", target: "_blank" %>
-      <%= link_to image_tag("curb-logo.png", alt: "Logo", class: "ride-logos"), "https://www.gocurb.com/", target: "_blank" %>
-      <%= link_to image_tag("via-logo.png", alt: "Logo", class: "ride-logos"), "https://ridewithvia.com/", target: "_blank" %>
-      <%= link_to image_tag("arro-logo.png", alt: "Logo", class: "ride-logos"), "https://www.ridearro.com/", target: "_blank" %>
-  </div>
+  <section class="customer-logos slider">
+      <%= link_to image_tag("uber-logo.png", alt: "Logo", class: "ride-logos slide"), "https://www.uber.com/", target: "_blank" %>
+      <%= link_to image_tag("lyft-logo.png", alt: "Logo", class: "ride-logos slide"), "https://www.lyft.com/", target: "_blank" %>
+      <%= link_to image_tag("curb-logo.png", alt: "Logo", class: "ride-logos slide"), "https://www.gocurb.com/", target: "_blank" %>
+      <%= link_to image_tag("via-logo.png", alt: "Logo", class: "ride-logos slide"), "https://ridewithvia.com/", target: "_blank" %>
+      <%= link_to image_tag("arro-logo.png", alt: "Logo", class: "ride-logos slide"), "https://www.ridearro.com/", target: "_blank" %>
+  </section>
 </div>
