@@ -22,7 +22,7 @@
           <p><%= location.address %></p>
         </div>
         <% if location.name.nil? %>
-          <% link_to  edit_location_path(location) do %>
+          <%= link_to  edit_location_path(location) do %>
             <i class="fa-solid fa-bookmark fa-xl" style="color: #FCA311;"></i>
           <% end %>
         <% end %>
