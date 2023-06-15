@@ -169,8 +169,7 @@ ride1 = Ride.create!(
   ETA: 23,
   fare: 300,
   category: "luxury",
-  link_to_app: "",
-  path_image: "uber-logo.png"
+  link_to_app: ""
 )
 
 trip1 = Trip.create!(
@@ -182,7 +181,7 @@ trip1 = Trip.create!(
 
 ride2 = Ride.create!(
   user_id: moses.id,
-  platform_id: uber.id,
+  platform_id: arro.id,
   city_id: nevada.id,
   ETA: 33,
   fare: 20,
@@ -215,8 +214,8 @@ trip3 = Trip.create!(
 )
 
 ride4 = Ride.create!(
-  user_id: dorian.id,
-  platform_id: uber.id,
+  user_id: moses.id,
+  platform_id: lyft.id,
   city_id: newyork.id,
   ETA: 18,
   fare: 30,
@@ -225,8 +224,25 @@ ride4 = Ride.create!(
 )
 
 trip4 = Trip.create!(
-  user_id: dorian.id,
+  user_id: moses.id,
   ride_id: ride4.id,
   start_location_id: uberhq.id,
   end_location_id: coittower.id
+)
+
+ride5 = Ride.create!(
+  user_id: moses.id,
+  platform_id: arro.id,
+  city_id: newyork.id,
+  ETA: 5,
+  fare: 150,
+  category: "luxury",
+  link_to_app: ""
+)
+
+trip5 = Trip.create!(
+  user_id: moses.id,
+  ride_id: ride5.id,
+  start_location_id: coittower.id,
+  end_location_id: uberhq.id
 )

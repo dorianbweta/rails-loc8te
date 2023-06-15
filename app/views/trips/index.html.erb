@@ -1,24 +1,20 @@
- <h2 class="header">My Trips</h2>
- <div class="container-history my-1">
-    <% 5.times do %>
-      <% @trips.each do |trip| %>
-  <div class="card-product">
-    <div class="title">
-    <h2><%= trip.end_location.name %></h1>
-    <hr>
-    </div>
-    <div class="card-product-infos d-flex">
-      <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/uber_icon_146079.png"/>
-      <div class="trip-info">
-        <p><strong>From:</strong> <%= trip.start_location.name %></p>
-        <p><strong>To:</strong> <%= trip.end_location.name %></p>
-
+<div class="full-page">
+  <h2 class="header">My Trips</h2>
+  <div class="container-history my-1">
+    <% @trips.each do |trip| %>
+      <div class="card-product">
+        <div class="card-product-infos d-flex">
+          <%= image_tag trip.ride.path_image, alt: "Logo", class: "ride-logos" %>
+          <div class="trip-info">
+            <p><strong>From:</strong> <%= trip.start_location.address %></p>
+            <p><strong>To:</strong> <%= trip.end_location.address %></p>
+          </div>
+          <div class="date">
+            <h2><%= trip.created_at.strftime("%d.%m") %></h2>
+          </div>
+        </div>
       </div>
-      <div class="date">
-        <h2><%= trip.created_at.strftime("%d.%m.%Y") %></h2>
-      </div>
-    </div>
-  </div>
-      <% end %>
+      <hr>
     <% end %>
+  </div>
 </div>
