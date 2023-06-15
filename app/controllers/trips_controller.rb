@@ -35,12 +35,19 @@ class TripsController < ApplicationController
     city.platforms.each do |platform|
       available_rides_per_platform = rand(2..3)
       available_rides_per_platform.times do
+        rand_fare = rand(20..100)
         @rides << Ride.new(
           platform: platform,
           city: city,
           ETA: rand(15..25),
-          fare: rand(20..100),
-          category: Ride::CATEGORIES.sample,
+          fare: rand_fare,
+          category: if rand_fare < 40
+                        "Economy"
+                    elsif rand_fare < 70
+                        "Green"
+                    else
+                        "Luxury"
+                    end,
           link_to_app: platform.name == "Uber" ? build_link_to_app(@trip) : "",
           path_image: "#{platform.name.downcase}-logo.png"
         )
